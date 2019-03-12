@@ -6,7 +6,7 @@
 #    By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/27 12:38:55 by pbie              #+#    #+#              #
-#    Updated: 2018/08/27 13:03:16 by pbie             ###   ########.fr        #
+#    Updated: 2019/03/12 18:01:58 by pbie             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,11 @@ CXX = clang++
 
 CXXFLAGS = -Wall -Werror -Wextra
 
-NAME = phonebook
+NAME = phantasticPhonebook
 
-SRC = phonebook.cpp
+SRC = phantastic.cpp \
+		phonebook.cpp \
+		contact.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
