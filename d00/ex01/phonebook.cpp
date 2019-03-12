@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 17:00:30 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/12 18:36:54 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/12 19:09:13 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,38 @@ void Phonebook::printContacts()
 {
 	int x = 0;
 	int len = 0;
+	std::string str;
 
 	while(x < contacts_len)
 	{
-		std::cout << "         " << x << "|";
+		printSpaces(9);
+		std::cout << x << "|";
 		len = contacts[x].getFirstName().length();
-		std::cout << contacts[x].getFirstName();
+		if (len > 10) str = contacts[x].getFirstName().substr(0, 10) + ".";
+		else
+		{
+			printSpaces(10 - len);
+			str = contacts[x].getFirstName();
+		}
+		std::cout << str << "|";
+		len = contacts[x].getLastName().length();
+		if (len > 10) str = contacts[x].getLastName().substr(0, 10) + ".";
+		else
+		{
+			printSpaces(10 - len);
+			str = contacts[x].getLastName();
+		}
+		std::cout << str << "|";
+		len = contacts[x].getNickname().length();
+		if (len > 10) str = contacts[x].getNickname().substr(0, 10) + ".";
+		else
+		{
+			printSpaces(10 - len);
+			str = contacts[x].getNickname();
+		}
+		std::cout << str << "|";
 		x++;
+		std::cout << "" << std::endl;
 	}
 }
 
@@ -73,5 +98,6 @@ void printSpaces(int spaces)
 	while(x < spaces)
 	{
 		std::cout << " ";
+		x++;
 	}
 }

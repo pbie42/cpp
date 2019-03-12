@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 16:50:12 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/12 17:57:02 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/12 19:09:45 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,10 @@ int main()
 			std::cout << "you've selected SEARCH" << std::endl;
 			if (phonebook.contacts_len < 1)
 				std::cout << "Please add a contact before searching!" << std::endl;
-			else
+			else {
 				phonebook.printContacts();
+				phonebook.search();
+			}
 		}
 		else
 		{
