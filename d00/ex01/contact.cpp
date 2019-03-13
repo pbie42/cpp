@@ -6,24 +6,13 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 18:01:02 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/13 11:50:37 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/13 13:45:28 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-#include "contact.hpp"
+#include "phantastic.hpp"
 
 Contact::Contact() {}
-
-std::string getInfo(std::string field)
-{
-	std::string buffer;
-
-	std::cout << field;
-	getline(std::cin, buffer);
-	return buffer;
-}
 
 void Contact::printInfo()
 {

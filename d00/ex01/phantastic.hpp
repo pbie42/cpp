@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   phantastic.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/12 16:24:55 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/13 13:48:59 by pbie             ###   ########.fr       */
+/*   Created: 2019/03/13 13:41:33 by pbie              #+#    #+#             */
+/*   Updated: 2019/03/13 13:48:48 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_H
-#define PHONEBOOK_H
+#ifndef PHANTASTIC_H
+#define PHANTASTIC_H
 
-#include "phantastic.hpp"
+#include <iostream>
+#include <string>
+#include "contact.hpp"
+#include "phonebook.hpp"
 
-class Phonebook
-{
-	private:
-		Contact contacts[8];
+std::string getInfo(std::string field);
+void handleAdd(Phonebook *phonebook);
+void handleFormat(std::string string);
+void handleSearch(Phonebook *phonebook);
+void printSpaces(int spaces);
 
-	public:
-		Phonebook();
-		int contacts_len;
-		bool addContact();
-		void printContacts();
-		void search();
-};
-
-#endif // PHONEBOOK_H
+#endif // PHANTASTIC_H
