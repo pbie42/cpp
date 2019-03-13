@@ -6,14 +6,55 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 18:01:02 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/12 18:14:12 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/13 11:50:37 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 #include <string>
 #include "contact.hpp"
 
 Contact::Contact() {}
+
+std::string getInfo(std::string field)
+{
+	std::string buffer;
+
+	std::cout << field;
+	getline(std::cin, buffer);
+	return buffer;
+}
+
+void Contact::printInfo()
+{
+	std::cout << "" << std::endl;
+	std::cout << "First Name:      " << Contact::getFirstName() << std::endl;
+	std::cout << "Last Name:       " << Contact::getLastName() << std::endl;
+	std::cout << "Nickname:        " << Contact::getNickname() << std::endl;
+	std::cout << "Postal Address:  " << Contact::getPostalAddress() << std::endl;
+	std::cout << "Email Address:   " << Contact::getEmailAddress() << std::endl;
+	std::cout << "Phone Number:    " << Contact::getPhoneNumber() << std::endl;
+	std::cout << "Birth Date:      " << Contact::getBirthDate() << std::endl;
+	std::cout << "Favorite Meal:   " << Contact::getFavoriteMeal() << std::endl;
+	std::cout << "Underwear Color: " << Contact::getUnderwearColor() << std::endl;
+	std::cout << "Darkest Secret:  " << Contact::getDarkestSecret() << std::endl;
+	std::cout << "" << std::endl;
+}
+
+void Contact::setInfo()
+{
+	std::cout << "" << std::endl;
+	Contact::setFirstName(getInfo("First Name: "));
+	Contact::setLastName(getInfo("Last Name: "));
+	Contact::setNickname(getInfo("Nickname: "));
+	Contact::setPostalAddress(getInfo("Postal Address: "));
+	Contact::setEmailAddress(getInfo("Email Address: "));
+	Contact::setPhoneNumber(getInfo("Phone Number: "));
+	Contact::setBirthDate(getInfo("Birth Date: "));
+	Contact::setFavoriteMeal(getInfo("Favorite Meal: "));
+	Contact::setUnderwearColor(getInfo("Underwear Color: "));
+	Contact::setDarkestSecret(getInfo("Darkest Secret: "));
+}
 
 void Contact::setFirstName(std::string str)
 {

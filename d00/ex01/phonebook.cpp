@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 17:00:30 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/12 19:09:13 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/13 12:02:05 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,23 @@ bool Phonebook::addContact()
 	if (contacts_len >= 8)
 		return false;
 	contact = &(contacts[contacts_len]);
-	contact->setFirstName(getInfo("First Name: "));
-	contact->setLastName(getInfo("Last Name: "));
-	contact->setNickname(getInfo("Nickname: "));
-	contact->setPostalAddress(getInfo("Postal Address: "));
-	contact->setEmailAddress(getInfo("Email Address: "));
-	contact->setPhoneNumber(getInfo("Phone Number: "));
-	contact->setBirthDate(getInfo("Birth Date: "));
-	contact->setFavoriteMeal(getInfo("Favorite Meal: "));
-	contact->setUnderwearColor(getInfo("Underwear Color: "));
-	contact->setDarkestSecret(getInfo("Darkest Secret: "));
+	contact->setInfo();
 	contacts_len++;
 	return true;
+}
+
+void Phonebook::search()
+{
+	bool valid = false;
+	int index;
+
+	while(!valid){
+		std::cout << "Please enter the number of the contact you would like information for: ";
+		std::cin >> index;
+		if (index >= 0 && index <= contacts_len) valid = true;
+		std::cin.ignore();
+	}
+	contacts[index].printInfo();
 }
 
 void Phonebook::printContacts()
@@ -50,46 +55,33 @@ void Phonebook::printContacts()
 	int len = 0;
 	std::string str;
 
+	std::cout << "" << std::endl;
 	while(x < contacts_len)
 	{
 		printSpaces(9);
 		std::cout << x << "|";
-		len = contacts[x].getFirstName().length();
-		if (len > 10) str = contacts[x].getFirstName().substr(0, 10) + ".";
-		else
-		{
-			printSpaces(10 - len);
-			str = contacts[x].getFirstName();
-		}
-		std::cout << str << "|";
-		len = contacts[x].getLastName().length();
-		if (len > 10) str = contacts[x].getLastName().substr(0, 10) + ".";
-		else
-		{
-			printSpaces(10 - len);
-			str = contacts[x].getLastName();
-		}
-		std::cout << str << "|";
-		len = contacts[x].getNickname().length();
-		if (len > 10) str = contacts[x].getNickname().substr(0, 10) + ".";
-		else
-		{
-			printSpaces(10 - len);
-			str = contacts[x].getNickname();
-		}
-		std::cout << str << "|";
+		handleFormat(contacts[x].getFirstName());
+		handleFormat(contacts[x].getLastName());
+		handleFormat(contacts[x].getNickname());
 		x++;
 		std::cout << "" << std::endl;
 	}
+	std::cout << "" << std::endl;
 }
 
-std::string getInfo(std::string field)
+void handleFormat(std::string string)
 {
-	std::string buffer;
+	int len = 0;
+	std::string str;
 
-	std::cout << field;
-	getline(std::cin, buffer);
-	return buffer;
+	len = string.length();
+	if (len > 10) str = string.substr(0, 9) + ".";
+	else
+	{
+		printSpaces(10 - len);
+		str = string;
+	}
+	std::cout << str << "|";
 }
 
 void printSpaces(int spaces)

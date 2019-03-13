@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 16:30:39 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/12 18:13:34 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/13 11:33:11 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ class Contact
 		std::string darkest_secret;
 	public:
 		Contact();
+		void printInfo();
+		void setInfo();
 		void setFirstName(std::string str);
 		std::string getFirstName();
 		void setLastName(std::string str);
