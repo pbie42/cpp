@@ -6,11 +6,32 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 16:50:12 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/13 13:43:49 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/13 14:30:29 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phantastic.hpp"
+#include "phonebook.hpp"
+#include "utils.hpp"
+#include <iostream>
+#include <string>
+
+void handleAdd(Phonebook *phonebook)
+{
+	if (phonebook->addContact())
+		std::cout << "\nYour contact has been added!\n" << std::endl;
+	else
+		std::cout << "Sorry but the contact list is full!" << std::endl;
+}
+
+void handleSearch(Phonebook *phonebook)
+{
+	if (phonebook->contacts_len < 1)
+		std::cout << "\nPlease add a contact before searching!\n" << std::endl;
+	else {
+		phonebook->printContacts();
+		phonebook->search();
+	}
+}
 
 int main()
 {
@@ -35,22 +56,4 @@ int main()
 	}
 	std::cout << "\nThanks for using Phantastic Phonebook!\n" << std::endl;
 	return 0;
-}
-
-void handleAdd(Phonebook *phonebook)
-{
-	if (phonebook->addContact())
-		std::cout << "\nYour contact has been added!\n" << std::endl;
-	else
-		std::cout << "Sorry but the contact list is full!" << std::endl;
-}
-
-void handleSearch(Phonebook *phonebook)
-{
-	if (phonebook->contacts_len < 1)
-		std::cout << "\nPlease add a contact before searching!\n" << std::endl;
-	else {
-		phonebook->printContacts();
-		phonebook->search();
-	}
 }

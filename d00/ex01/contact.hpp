@@ -6,14 +6,14 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 16:30:39 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/13 13:49:20 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/13 14:18:36 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_H
 #define CONTACT_H
 
-#include "phantastic.hpp"
+#include <string>
 
 class Contact
 {

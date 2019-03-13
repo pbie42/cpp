@@ -6,14 +6,14 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 16:24:55 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/13 13:48:59 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/13 14:17:59 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_H
 #define PHONEBOOK_H
 
-#include "phantastic.hpp"
+#include "contact.hpp"
 
 class Phonebook
 {

@@ -6,11 +6,14 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 18:01:02 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/13 13:45:28 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/13 14:23:26 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phantastic.hpp"
+#include "contact.hpp"
+#include "utils.hpp"
+#include <iostream>
+#include <string>
 
 Contact::Contact() {}
 
