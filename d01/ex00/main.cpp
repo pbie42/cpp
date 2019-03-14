@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 13:35:35 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/14 13:51:23 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/14 14:06:12 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@ int main()
 {
 	std::cout << "Entering ponyOnTheStack" << std::endl;
 	ponyOnTheStack();
+	std::cout << "Out of ponyOnTheStack" << std::endl;
 	std::cout << "Entering ponyOnTheHeap" << std::endl;
 	ponyOnTheHeap();
+	std::cout << "Out of ponyOnTheHeap" << std::endl;
 	return 0;
 }
