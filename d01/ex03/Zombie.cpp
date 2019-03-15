@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 15:03:18 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/14 16:44:46 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/15 11:24:48 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ Zombie::Zombie()
 
 	this->name = randomNames[random];
 	this->type = "Normal";
+
+	std::cout << "Zombie " << this->name << " has reanimated" << std::endl;
 }
 
 Zombie::~Zombie()

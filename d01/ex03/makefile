@@ -6,7 +6,7 @@
 #    By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/27 12:38:55 by pbie              #+#    #+#              #
-#    Updated: 2019/03/14 16:47:35 by pbie             ###   ########.fr        #
+#    Updated: 2019/03/15 11:21:18 by pbie             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CXX = clang++
 
 CXXFLAGS = -Wall -Werror -Wextra
 
-NAME = zombieEvent
+NAME = zombieHorde
 
 SRC = main.cpp \
 		Zombie.cpp \
