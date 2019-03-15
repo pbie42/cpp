@@ -6,17 +6,17 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/15 12:00:26 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/15 12:03:10 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/15 13:42:15 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
+#include "Human.hpp"
 #include <iostream>
 
 int main()
 {
-	Brain brain = Brain();
+	Human bob;
 
-	std::cout << brain.identify() << std::endl;
-	return 0;
+	std::cout << bob.identify() << std::endl;
+	std::cout << bob.getBrain().identify() << std::endl;
 }
