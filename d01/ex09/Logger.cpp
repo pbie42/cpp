@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 14:53:08 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/18 15:30:14 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/18 16:25:46 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void Logger::logToFile(const std::string message)
 	std::ofstream outfile;
 
 	outfile.open(this->fileName, std::ios_base::app);
-	outfile << this->makeLogEntry(message);
+	outfile << "\n" << this->makeLogEntry(message);
 	outfile.close();
 }
 
@@ -48,7 +48,7 @@ std::string Logger::makeLogEntry(const std::string message)
 	std::string str;
 
 	timeStampEntry << now->tm_mday << "/" << (now->tm_mon + 1) << "/" << (now->tm_year + 1900) << " ";
-	timeStampEntry << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec  << " - " << message;
+	timeStampEntry << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec << " - " << message;
 	str = timeStampEntry.str();
 	return str;
 }
