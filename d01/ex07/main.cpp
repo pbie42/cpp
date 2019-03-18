@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/15 16:56:08 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/15 17:49:40 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/18 11:23:44 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,17 @@ std::string replaceString(std::string subject, const std::string& search, const 
 	return subject;
 }
 
+std::string toUpper(std::string str)
+{
+	int x = -2;
+	while (str[++x]) {
+		if (str[x] >= 'a' && str[x] <= 'z') {
+			str[x] = str[x] - 32;
+		}
+	}
+	return str;
+}
+
 int main(int argc, char const *argv[])
 {
 	std::ifstream givenFile;
@@ -52,8 +63,10 @@ int main(int argc, char const *argv[])
 		std::cout << "File does not exist" << std::endl;
 		return 0;
 	}
+	if (strcmp(argv[2], "") == 0 || strcmp(argv[3], "") == 0) return 0;
 	givenFile.open(argv[1]);
-	std::string fileName = getFileName(argv[1]).append(".replace");
+	std::string fileName = getFileName(argv[1]);
+	fileName = toUpper(fileName).append(".replace");
 	std::cout << fileName << std::endl;
 
 	newFile.open(fileName);
