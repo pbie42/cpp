@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 16:49:56 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/18 17:14:20 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/18 17:17:06 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int main(int argc, char const *argv[])
 				std::cout << input << std::endl;
 		if (doesFileExist(argv[x]))
 		{
-			std::cout << "file exists" << std::endl;
 			givenFile.open(argv[x]);
 			while(std::getline(givenFile, input))
 				std::cout << input << std::endl;
