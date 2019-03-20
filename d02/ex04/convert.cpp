@@ -1,45 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   convert.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/19 16:16:56 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/20 13:42:13 by pbie             ###   ########.fr       */
+/*   Created: 2019/03/20 14:11:39 by pbie              #+#    #+#             */
+/*   Updated: 2019/03/20 14:29:50 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-#include <iostream>
 #include <string>
 
-bool validateExpression(std::string str);
+bool expressionCheck(std::string str);
 
-void handleExpression(std::string str)
+std::string calculateExpression(std::string str)
 {
-	std::cout << str << " is a valid expression" << std::endl;
+
 }
 
-int main(int argc, char const *argv[])
+std::string convert(std::string str)
 {
-	int x = 1;
+	int x = 0;
+	int start = 0;
+	int end = 0;
 
-	if (argc <= 1) return 0;
-	while(x < argc)
+	while(str[x])
 	{
-		if (!validateExpression(argv[x]))
+		if (str[x] == '(') start = x;
+		if (str[start] == '(' && str[x] == ')') end = x;
+		if (start < end)
 		{
-			std::cout << argv[x] << " is not a valid expression" << std::endl;
-			x++;
-			continue;
-		}
-		else
-		{
-			handleExpression(argv[x]);
+			std::string calculated = calculateExpression(str.substr(start, end - start));
 		}
 		x++;
 	}
-	return 0;
+	
 }
-
