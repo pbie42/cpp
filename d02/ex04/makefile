@@ -6,7 +6,7 @@
 #    By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/27 12:38:55 by pbie              #+#    #+#              #
-#    Updated: 2019/03/20 13:39:58 by pbie             ###   ########.fr        #
+#    Updated: 2019/03/20 18:37:58 by pbie             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ NAME = eval_expr
 
 SRC = main.cpp \
 		checks.cpp \
+		convert.cpp \
 		Fixed.cpp
 
 OBJ = $(SRC:.cpp=.o)

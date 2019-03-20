@@ -6,17 +6,77 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 13:39:06 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/20 14:54:03 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/20 18:23:24 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
+#include <iostream>
 
-bool expressionCheck(std::string str)
+bool numCheck(char c)
 {
-	if (str.find("+") == std::string::npos && str.find("-") == std::string::npos
-		&& str.find("/") == std::string::npos && str.find("*") == std::string::npos)
-		return false;
+	if (c >= '0' && c <= '9') return true;
+	return false;
+}
+
+bool decCheck(char c)
+{
+	if (c != '.') return false;
+	return true;
+}
+
+bool numDecCheck(char c)
+{
+	if (decCheck(c) || numCheck(c)) return true;
+	return false;
+}
+
+bool exprCheck(char c)
+{
+	if (c == '+' || c == '-' || c == '/' || c =='*') return true;
+	return false;
+}
+
+bool nonNegCheck(char c)
+{
+	if (c == '+' || c == '/' || c =='*') return true;
+	return false;
+}
+
+bool negCheck(std::string str, int x)
+{
+	int z = x;
+	int count = 0;
+	while(str[z] && str[z] == '-')
+	{
+		count++;
+		z++;
+	}
+	std::cout << "here" << std::endl;
+	if (count > 2) return false;
+	return true;
+}
+
+bool expressionsCheck(std::string str)
+{
+	int x = 0;
+	bool plus = false;
+	bool minus = false;
+	bool divide = false;
+	bool multiply = false;
+
+	while(str[x])
+	{
+		if (!plus && str[x] == '+') plus = true;
+		if (!minus && str[x] == '-') minus = true;
+		if (!divide && str[x] == '/') divide = true;
+		if (!multiply && str[x] == '*') multiply = true;
+		if (exprCheck(str[x]) && str[x + 1] && nonNegCheck(str[x + 1])) return false;
+		if (exprCheck(str[x]) && str[x + 1] && str[x + 1] == '-' && !negCheck(str, x)) return false;
+		if (exprCheck(str[x]) && str[x - 1] && nonNegCheck(str[x - 1])) return false;
+		x++;
+	}
+	if (!plus && !minus && !divide && !multiply) return false;
 	return true;
 }
 
@@ -24,26 +84,31 @@ bool numbersCheck(std::string str)
 {
 	int x = 0;
 	int x2 = 0;
+	int numCount = 0;
 	bool decimal = false;
+	bool isDec = false;
 
 	while(str[x])
 	{
-		if ((str[x] < '9' && str[x] > '0') || str[x] == '.')
+		if (numDecCheck(str[x]))
 		{
 			x2 = x;
-			while(str[x2] && (str[x2] == '.' || (str[x2] < '9' && str[x2] > '0')))
+			while(str[x2] && numDecCheck(str[x2]))
 			{
-				if (str[x2] == '.' && !decimal) decimal = true;
-				else if (str[x2] == '.' && decimal) return false;
-				if (str[x2] == '.' && str[x2 + 1] && (str[x2 + 1] < '0' || str[x2 + 1] > '9')) return false;
-				if (str[x2] == '.' && !str[x2 + 1]) return false;
+				isDec = decCheck(str[x2]);
+				if (isDec && !decimal) decimal = true;
+				else if (isDec && decimal) return false;
+				if (isDec && str[x2 + 1] && !numCheck(str[x2 + 1])) return false;
+				if (isDec && !str[x2 + 1]) return false;
 				x2++;
 			}
 			decimal = false;
+			numCount++;
 		}
 		if (x2 > 0 && x2 > x) x = x2;
 		else x++;
 	}
+	if (numCount < 2) return false;
 	return true;
 }
 
@@ -56,6 +121,12 @@ bool parenthesisCheck(std::string str)
 	while(str[x])
 	{
 		if (str[x] == '(') l++;
+		if (str[x] == '(' && str[x + 1] && str[x + 1] == ')')
+			return false;
+		if (str[x] == '(' && (x - 1 > 0) && (!exprCheck(str[x - 1]) && str[x] != '('))
+			return false;
+		if (str[x] == ')' && str[x + 1] && (!exprCheck(str[x + 1]) && str[x] != ')'))
+			return false;
 		if (str[x] == ')') r++;
 		if (r > l) return false;
 		x++;
@@ -77,7 +148,7 @@ bool characterCheck(std::string str)
 
 bool validateExpression(std::string str)
 {
-	if (!expressionCheck(str)) return false;
+	if (!expressionsCheck(str)) return false;
 	if (!parenthesisCheck(str)) return false;
 	if (!characterCheck(str)) return false;
 	if (!numbersCheck(str)) return false;

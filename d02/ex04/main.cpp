@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/19 16:16:56 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/20 13:42:13 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/20 18:39:07 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,35 @@
 #include <string>
 
 bool validateExpression(std::string str);
+std::string convert(std::string str);
 
-void handleExpression(std::string str)
+std::string removeSpaces(std::string str)
 {
-	std::cout << str << " is a valid expression" << std::endl;
+	size_t found;
+	std::string newStr = str;
+	while((found = newStr.find(' ')) != std::string::npos)
+	{
+		newStr.erase(found, 1);
+	}
+	std::cout << "erased newStr: " << newStr << std::endl;
+	return newStr;
 }
+
+// void handleExpression(std::string str)
+// {
+	
+// }
 
 int main(int argc, char const *argv[])
 {
 	int x = 1;
+	std::string str;
 
 	if (argc <= 1) return 0;
 	while(x < argc)
 	{
-		if (!validateExpression(argv[x]))
+		str = removeSpaces(argv[x]);
+		if (!validateExpression(str))
 		{
 			std::cout << argv[x] << " is not a valid expression" << std::endl;
 			x++;
@@ -36,7 +51,8 @@ int main(int argc, char const *argv[])
 		}
 		else
 		{
-			handleExpression(argv[x]);
+			std::cout << argv[x] << " is a valid expression" << std::endl;
+			convert(str);
 		}
 		x++;
 	}
