@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 13:39:06 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/21 11:59:45 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/21 15:02:57 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ bool expressionsCheck(std::string str)
 		if (!minus && str[x] == '-') minus = true;
 		if (!divide && str[x] == '/') divide = true;
 		if (!multiply && str[x] == '*') multiply = true;
+		if (str[x] == '(' && str[x + 1] && nonNegCheck(str[x + 1])) return false;
 		if (exprCheck(str[x]) && str[x + 1] && nonNegCheck(str[x + 1])) return false;
 		if (exprCheck(str[x]) && str[x + 1] && str[x + 1] == '-' && !negCheck(str, x)) return false;
 		if (exprCheck(str[x]) && str[x - 1] && nonNegCheck(str[x - 1])) return false;
@@ -149,6 +150,7 @@ bool characterCheck(std::string str)
 
 bool validateExpression(std::string str)
 {
+	if (nonNegCheck(str[0])) return false;
 	if (!expressionsCheck(str)) return false;
 	if (!parenthesisCheck(str)) return false;
 	if (!characterCheck(str)) return false;

@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 14:11:39 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/21 11:51:04 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/21 14:57:32 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ int evalSymbol(std::string str, int v1, int v2)
 int findHighestExpression(std::string str)
 {
 	int x = 0;
-	int expr = 0;
+	int expr = str[0] == '(' ? 2 : 1;
 
 	while(str[x])
 	{
-		if (exprCheck(str[x]))
+		if (exprCheck(str[x]) && x > expr)
 			expr = evalSymbol(str, expr, x);
 		x++;
 	}
@@ -75,22 +75,57 @@ std::string processOperation(std::string num1, std::string num2, char s)
 	return total;
 }
 
-int handleOperation(std::string str, int expr)
+std::string findNum1(std::string str, int expr)
 {
 	int x = expr;
-	int y = x;
-	std::cout << "x: " << x << std::endl;
+	int y;
 
 	while(x >= 0 && !numDecCheck(str[x]))
 		x--;
-	std::cout << str[x] << std::endl;
 	y = x;
 	while(y >= 0 && numDecCheck(str[y]))
 		y--;
-	y++;
-	std::cout << str[y] << std::endl;
+	if (y == -1 || (y == 0 && str[y] == '(')) y++;
+	else if (y > 0 && str[y] == '-')
+	{
+		if (y - 1 >= 0 && !exprCheck(str[y - 1]))
+			y++;
+	}
+	return str.substr(y, ++x - y);
+}
+
+std::string handleOperation(std::string str, int expr)
+{
+	int x = expr;
+	int y = x;
+	int start = 0;
+	int end = 0;
+
+
+	std::cout << "expr: " << x << std::endl;
+	while(x >= 0 && !numDecCheck(str[x]))
+		x--;
+	std::cout << "x: " << x << std::endl;
+	y = x;
+	while(y >= 0 && numDecCheck(str[y]))
+		y--;
+	if (y - 1 >= 0 && str[y - 1] == '-')
+	{
+		std::cout << "in here bruh" << std::endl;
+		if (!(y - 2 >= 0)) y--;
+		// if (y - 2 >= 0 str[y - 1])
+	}
+	if (str[y] == '(') y++;
+
+	std::cout << "y: " << y << std::endl;
+	if (y - 1 >= 0 && (str[y - 1] == '(' || str[y - 1] == '-')){
+		std::cout << "start here" << std::endl;
+		start = y - 1;
+	}
+	else start = y;
+
 	std::string num1 = str.substr(y, ++x - y);
-	std::cout << "first num: " << num1 << std::endl;
+	std::cout << "start: " << start << std::endl;
 
 	x = expr;
 	while(str[x] && !numDecCheck(str[x]))
@@ -99,11 +134,20 @@ int handleOperation(std::string str, int expr)
 	while(str[y] && numDecCheck(str[y]))
 		y++;
 
+	if (str[y + 1] && str[y + 1] == ')'){
+		std::cout << "end here" << std::endl;
+		end = y + 1;
+	}
+	else end = y;
+
+	std::cout << "end: " << end << std::endl;
+	std::cout << "length: " << str.length() << std::endl;
 	std::string num2 = str.substr(x, y - x);
-	std::cout << "second num: " << num2 << std::endl;
-	
-	std::cout << "Total: " << processOperation(num1, num2, str[expr]) << std::endl;
-	return 0;
+	std::cout << "num1: " << num1 << std::endl;
+	std::cout << "num2: " << num2 << std::endl;
+	str.replace(start, end + 1, processOperation(num1, num2, str[expr]));
+	std::cout << str << std::endl;
+	return str;
 }
 
 std::string calculateExpression(std::string str)
@@ -111,10 +155,11 @@ std::string calculateExpression(std::string str)
 	int expr = 0;
 	int x = 0;
 
-	while(expressionsCheck(str) && x < 20)
+	std::cout << "expression: " << str << std::endl;
+	while(expressionsCheck(str))
 	{
 		expr = findHighestExpression(str);
-		handleOperation(str, expr);
+		str = handleOperation(str, expr);
 		x++;
 	}
 	return str;

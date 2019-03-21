@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/19 16:16:56 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/20 18:39:07 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/21 13:26:34 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,6 @@ std::string removeSpaces(std::string str)
 	std::cout << "erased newStr: " << newStr << std::endl;
 	return newStr;
 }
-
-// void handleExpression(std::string str)
-// {
-	
-// }
 
 int main(int argc, char const *argv[])
 {
