@@ -6,12 +6,14 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 14:11:39 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/20 18:48:39 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/21 11:51:04 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <string>
+#include <iostream>
+#include <sstream>
 
 bool exprCheck(char c);
 bool numDecCheck(char c);
@@ -40,6 +42,39 @@ int findHighestExpression(std::string str)
 	return expr;
 }
 
+std::string processOperation(std::string num1, std::string num2, char s)
+{
+	Fixed n1 = Fixed(std::stof(num1));
+	Fixed n2 = Fixed(std::stof(num2));
+	std::ostringstream ss;
+	std::string total;
+	switch (s)
+	{
+		case '+':
+			ss << (n1 + n2);
+			total = std::to_string((n1 + n2).toFloat());
+			break;
+		case '-':
+			ss << (n1 - n2);
+			total = std::to_string((n1 - n2).toFloat());
+			break;
+		case '*':
+			ss << (n1 * n2);
+			total = std::to_string((n1 * n2).toFloat());
+			break;
+		case '/':
+			ss << (n1 / n2);
+			total = std::to_string((n1 / n2).toFloat());
+			break;
+	
+		default:
+			break;
+	}
+	total = ss.str();
+	std::cout << "total: " << total << std::endl;
+	return total;
+}
+
 int handleOperation(std::string str, int expr)
 {
 	int x = expr;
@@ -48,11 +83,14 @@ int handleOperation(std::string str, int expr)
 
 	while(x >= 0 && !numDecCheck(str[x]))
 		x--;
+	std::cout << str[x] << std::endl;
 	y = x;
 	while(y >= 0 && numDecCheck(str[y]))
 		y--;
 	y++;
-	std::cout << "first num: " << str.substr(y, x - y == 0 ? 1 : x - y) << std::endl;
+	std::cout << str[y] << std::endl;
+	std::string num1 = str.substr(y, ++x - y);
+	std::cout << "first num: " << num1 << std::endl;
 
 	x = expr;
 	while(str[x] && !numDecCheck(str[x]))
@@ -60,7 +98,11 @@ int handleOperation(std::string str, int expr)
 	y = x;
 	while(str[y] && numDecCheck(str[y]))
 		y++;
-	std::cout << "second num: " << str.substr(x, y - x) << std::endl;
+
+	std::string num2 = str.substr(x, y - x);
+	std::cout << "second num: " << num2 << std::endl;
+	
+	std::cout << "Total: " << processOperation(num1, num2, str[expr]) << std::endl;
 	return 0;
 }
 
@@ -96,5 +138,6 @@ std::string convert(std::string str)
 		end = 0;
 		x++;
 	}
+	calculateExpression(str);
 	return str;
 }

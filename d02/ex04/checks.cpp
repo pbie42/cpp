@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 13:39:06 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/20 18:23:24 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/21 11:59:45 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ bool negCheck(std::string str, int x)
 		count++;
 		z++;
 	}
-	std::cout << "here" << std::endl;
 	if (count > 2) return false;
 	return true;
 }
@@ -123,9 +122,11 @@ bool parenthesisCheck(std::string str)
 		if (str[x] == '(') l++;
 		if (str[x] == '(' && str[x + 1] && str[x + 1] == ')')
 			return false;
-		if (str[x] == '(' && (x - 1 > 0) && (!exprCheck(str[x - 1]) && str[x] != '('))
+		if (str[x] == '(' && (x - 1 > 0) && !exprCheck(str[x - 1]))
 			return false;
-		if (str[x] == ')' && str[x + 1] && (!exprCheck(str[x + 1]) && str[x] != ')'))
+		if (str[x] == ')' && str[x + 1] && !exprCheck(str[x + 1]))
+			return false;
+		if (str[x] == ')' && str[x - 1] && exprCheck(str[x - 1]))
 			return false;
 		if (str[x] == ')') r++;
 		if (r > l) return false;
