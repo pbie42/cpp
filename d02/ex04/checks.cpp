@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 13:39:06 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/21 15:02:57 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/21 16:43:12 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,18 @@ bool expressionsCheck(std::string str)
 		if (!divide && str[x] == '/') divide = true;
 		if (!multiply && str[x] == '*') multiply = true;
 		if (str[x] == '(' && str[x + 1] && nonNegCheck(str[x + 1])) return false;
+		// std::cout << "1" << std::endl;
 		if (exprCheck(str[x]) && str[x + 1] && nonNegCheck(str[x + 1])) return false;
+		// std::cout << "2" << std::endl;
 		if (exprCheck(str[x]) && str[x + 1] && str[x + 1] == '-' && !negCheck(str, x)) return false;
-		if (exprCheck(str[x]) && str[x - 1] && nonNegCheck(str[x - 1])) return false;
+		// std::cout << "3" << std::endl;
+		// std::cout << str[x] << std::endl;
+		// if (str[x] == '-' && str[x - 1] && !nonNegCheck(str[x - 1])) return false;
+		// std::cout << "4" << std::endl;
 		x++;
 	}
 	if (!plus && !minus && !divide && !multiply) return false;
+
 	return true;
 }
 
@@ -123,14 +129,19 @@ bool parenthesisCheck(std::string str)
 		if (str[x] == '(') l++;
 		if (str[x] == '(' && str[x + 1] && str[x + 1] == ')')
 			return false;
+		// std::cout << "1" << std::endl;
 		if (str[x] == '(' && (x - 1 > 0) && !exprCheck(str[x - 1]))
 			return false;
-		if (str[x] == ')' && str[x + 1] && !exprCheck(str[x + 1]))
+		// std::cout << "2" << std::endl;
+		if (str[x] == ')' && str[x + 1] && (!exprCheck(str[x + 1]) && str[x + 1] != ')'))
 			return false;
+		// std::cout << "3" << std::endl;
 		if (str[x] == ')' && str[x - 1] && exprCheck(str[x - 1]))
 			return false;
+		// std::cout << "4" << std::endl;
 		if (str[x] == ')') r++;
 		if (r > l) return false;
+		// std::cout << "5" << std::endl;
 		x++;
 	}
 	if (l != r) return false;
@@ -151,9 +162,14 @@ bool characterCheck(std::string str)
 bool validateExpression(std::string str)
 {
 	if (nonNegCheck(str[0])) return false;
+	std::cout << "valid nonNegCheck" << std::endl;
 	if (!expressionsCheck(str)) return false;
+	std::cout << "valid expressionsCheck" << std::endl;
 	if (!parenthesisCheck(str)) return false;
+	std::cout << "valid parenthesisCheck" << std::endl;
 	if (!characterCheck(str)) return false;
+	std::cout << "valid characterCheck" << std::endl;
 	if (!numbersCheck(str)) return false;
+	std::cout << "valid numbersCheck" << std::endl;
 	return true;
 }

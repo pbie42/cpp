@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/19 16:16:56 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/21 13:26:34 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/21 16:51:27 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,10 @@ int main(int argc, char const *argv[])
 {
 	int x = 1;
 	std::string str;
+
+	std::string test = "my name is paul";
+	test.replace(3, 4, "jim");
+	std::cout << "test: " << test << std::endl;
 
 	if (argc <= 1) return 0;
 	while(x < argc)
