@@ -6,11 +6,11 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 16:50:12 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/13 14:30:29 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/25 11:08:34 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include "Phonebook.hpp"
 #include "utils.hpp"
 #include <iostream>
 #include <string>
@@ -27,7 +27,8 @@ void handleSearch(Phonebook *phonebook)
 {
 	if (phonebook->contacts_len < 1)
 		std::cout << "\nPlease add a contact before searching!\n" << std::endl;
-	else {
+	else
+	{
 		phonebook->printContacts();
 		phonebook->search();
 	}
