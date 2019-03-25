@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 13:49:05 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/25 15:07:33 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/25 16:12:40 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ FragTrap::~FragTrap()
 void FragTrap::rangedAttack(std::string const & target) const
 {
 	std::cout << "FR4G-TP <" << this->getName() << "> attacks " << "<" << target
-	<< "> at range, causing <" << this->getRangedAttackDamage() << " points of damage." << std::endl;
+	<< "> at range, causing " << this->getRangedAttackDamage() << " points of damage." << std::endl;
 }
 
 void FragTrap::meleeAttack(std::string const & target) const
 {
 	std::cout << "FR4G-TP <" << this->getName() << "> attacks " << "<" << target
-	<< "> with melee, causing <" << this->getMeleeAttackDamage() << " points of damage." << std::endl;
+	<< "> with a melee attack, causing " << this->getMeleeAttackDamage() << " points of damage." << std::endl;
 }
 
 void FragTrap::beRepaired(unsigned int amount)
@@ -63,7 +63,7 @@ void FragTrap::takeDamage(unsigned int amount)
 	int current_hp = this->getHitPoints();
 	
 	if ((current_hp + this->getArmorDamageReduction()) >= amount)
-		this->hit_points -= (amount + this->getArmorDamageReduction());
+		this->hit_points -= (amount - this->getArmorDamageReduction());
 	else this->hit_points = 0;
 
 	std::cout << "FR4G-TP <" << this->getName() << "> is attacked for " << amount
@@ -95,6 +95,8 @@ FragTrap & FragTrap::operator=(FragTrap const &rhs)
 {
 	std::cout << "Assignment operator called" << std::endl;
 
+	std::cout << "<" << this->getName() << "> is now ";
+
 	this->name = rhs.getName();
 	this->hit_points = rhs.getHitPoints();
 	this->max_hit_points = rhs.getMaxHitPoints();
@@ -104,6 +106,8 @@ FragTrap & FragTrap::operator=(FragTrap const &rhs)
 	this->melee_atk_dmg = rhs.getMeleeAttackDamage();
 	this->ranged_atk_dmg = rhs.getRangedAttackDamage();
 	this->armor_dmg_reduction = rhs.getArmorDamageReduction();
+
+	std::cout << "<" << this->name << ">" << std::endl;
 	return *this;
 }
 
