@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 13:49:05 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/26 16:21:08 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/26 16:25:55 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,12 @@ void FragTrap::vaulthunter_dot_exe(std::string const & target)
 
 void FragTrap::rangedAttack(std::string const & target) const
 {
-	std::cout << "FR4G-TP named ";
+	std::cout << "FR4G-TP ranged attack and ";
 	ClapTrap::rangedAttack(target);
 }
 void FragTrap::meleeAttack(std::string const & target) const
 {
-	std::cout << "FR4G-TP named ";
+	std::cout << "FR4G-TP melee attack and ";
 	ClapTrap::meleeAttack(target);
 }
 void FragTrap::takeDamage(unsigned int amount)

@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 10:40:52 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/26 11:32:02 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/26 16:22:00 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ class ClapTrap
 		unsigned int armorDmgReduction
 		);
 		ClapTrap();
+		ClapTrap(const ClapTrap &f);
 		~ClapTrap();
 		void rangedAttack(std::string const & target) const;
 		void meleeAttack(std::string const & target) const;

@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 10:41:28 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/26 12:00:21 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/26 16:23:15 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,12 @@ rangedAtkDmg(20),
 armorDmgReduction(5)
 {
 	std::cout << "A ClapTrap named " << this->getName() << " has been created!" << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap &f)
+{
+	std::cout << "Copy constructor called" << std::endl;
+	*this = f;
 }
 
 ClapTrap::~ClapTrap()

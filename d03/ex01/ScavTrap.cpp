@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 16:23:57 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/26 13:26:33 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/26 16:20:01 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ level(1), meleeAtkDmg(20), rangedAtkDmg(15), armorDmgReduction(3)
 {
 	this->name = name;
 	std::cout << "SCAV-TP unit named " << this->getName() << " built." << std::endl;
+}
+
+ScavTrap::ScavTrap(const ScavTrap &f)
+{
+	std::cout << "Copy constructor called" << std::endl;
+	*this = f;
 }
 
 ScavTrap::~ScavTrap()

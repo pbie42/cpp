@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 13:49:05 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/26 13:26:43 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/26 16:18:59 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ level(1), meleeAtkDmg(30), rangedAtkDmg(20), armorDmgReduction(5)
 {
 	this->name = name;
 	std::cout << "FR4G-TP unit named " << this->getName() << " built." << std::endl;
+}
+
+FragTrap::FragTrap(const FragTrap &f)
+{
+	std::cout << "Copy constructor called" << std::endl;
+	*this = f;
 }
 
 FragTrap::~FragTrap()

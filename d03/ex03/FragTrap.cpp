@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 13:49:05 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/26 13:25:45 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/26 16:23:46 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ FragTrap::FragTrap(/* args */) : ClapTrap("Standard FR4G", 100, 100, 100, 100, 1
 FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 100, 100, 100, 1, 30, 20, 5)
 {
 	std::cout << "FR4G-TP unit named " << this->getName() << " built." << std::endl;
+}
+
+FragTrap::FragTrap(const FragTrap &f)
+{
+	std::cout << "Copy constructor called" << std::endl;
+	*this = f;
 }
 
 FragTrap::~FragTrap()

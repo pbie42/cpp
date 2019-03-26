@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 13:42:40 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/26 11:57:25 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/26 16:24:07 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class FragTrap : public ClapTrap
 public:
 	FragTrap(/* args */);
 	FragTrap(std::string name);
+	FragTrap(const FragTrap &f);
 	~FragTrap();
 	FragTrap & operator=(FragTrap const &rhs);
 	void vaulthunter_dot_exe(std::string const & target);

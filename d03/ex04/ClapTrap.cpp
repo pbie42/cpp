@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 10:41:28 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/26 16:22:29 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/26 16:25:35 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,16 @@ ClapTrap::ClapTrap(
 		unsigned int rangedAtkDmg,
 		unsigned int armorDmgReduction
 		)
+		:
+		name(name),
+		hitPoints(hitPoints),
+		maxHitPoints(maxHitPoints),
+		energyPoints(energyPoints),
+		maxEnergyPoints(maxEnergyPoints),
+		level(1),
+		meleeAtkDmg(meleeAtkDmg),
+		rangedAtkDmg(rangedAtkDmg),
+		armorDmgReduction(armorDmgReduction)
 {
 	this->name = name;
 	this->hitPoints = hitPoints;
@@ -35,7 +45,7 @@ ClapTrap::ClapTrap(
 	this->meleeAtkDmg = meleeAtkDmg;
 	this->rangedAtkDmg = rangedAtkDmg;
 	this->armorDmgReduction = armorDmgReduction;
-	std::cout << "A ClapTrap named " << this->getName() << " has been created!" << std::endl;
+	std::cout << "A new ClapTrap named " << this->getName() << " has been created!" << std::endl;
 }
 
 ClapTrap::ClapTrap() :

@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 16:23:57 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/26 13:26:15 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/26 16:20:47 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,13 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 100, 100, 50, 50, 1, 20, 2
 {
 	std::cout << "SCAV-TP unit named " << this->getName() << " built." << std::endl;
 }
+
+ScavTrap::ScavTrap(const ScavTrap &f)
+{
+	std::cout << "Copy constructor called" << std::endl;
+	*this = f;
+}
+
 
 ScavTrap::~ScavTrap()
 {

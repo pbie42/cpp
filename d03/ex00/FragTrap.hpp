@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 13:42:40 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/25 17:02:16 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/26 16:18:53 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ private:
 public:
 	FragTrap(/* args */);
 	FragTrap(std::string name);
+	FragTrap(const FragTrap &f);
 	~FragTrap();
 	void rangedAttack(std::string const & target) const;
 	void meleeAttack(std::string const & target) const;

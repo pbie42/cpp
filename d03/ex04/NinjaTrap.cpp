@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 13:13:40 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/26 16:25:08 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/26 16:26:24 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,12 @@ void NinjaTrap::ninjaShoebox(NinjaTrap & target) const
 
 void NinjaTrap::rangedAttack(std::string const & target) const
 {
-	std::cout << "NINJA-TP named ";
+	std::cout << "NINJA-TP ranged attack and ";
 	ClapTrap::rangedAttack(target);
 }
 void NinjaTrap::meleeAttack(std::string const & target) const
 {
-	std::cout << "NINJA-TP named ";
+	std::cout << "NINJA-TP melee attack and ";
 	ClapTrap::meleeAttack(target);
 }
 void NinjaTrap::takeDamage(unsigned int amount)
