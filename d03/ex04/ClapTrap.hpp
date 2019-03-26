@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 10:40:52 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/26 16:25:46 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/26 20:23:28 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,12 @@ class ClapTrap
 		unsigned int rangedAtkDmg;
 		unsigned int armorDmgReduction;
 	public:
-		ClapTrap(
-		std::string name,
-		unsigned int hitPoints,
-		unsigned int maxHitPoints,
-		unsigned int energyPoints,
-		unsigned int maxEnergyPoints,
-		unsigned int level,
-		unsigned int meleeAtkDmg,
-		unsigned int rangedAtkDmg,
-		unsigned int armorDmgReduction
-		);
+		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap &f);
 		ClapTrap();
-		virtual ~ClapTrap();
-		virtual void rangedAttack(std::string const & target) const;
-		virtual void meleeAttack(std::string const & target) const;
+		~ClapTrap();
+		void rangedAttack(std::string const & target) const;
+		void meleeAttack(std::string const & target) const;
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 		ClapTrap & operator=(ClapTrap const &rhs);

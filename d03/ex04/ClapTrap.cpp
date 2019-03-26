@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 10:41:28 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/26 16:25:35 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/26 20:35:35 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,52 +14,32 @@
 #include <iostream>
 #include <string>
 
-ClapTrap::ClapTrap(
-		std::string name,
-		unsigned int hitPoints,
-		unsigned int maxHitPoints,
-		unsigned int energyPoints,
-		unsigned int maxEnergyPoints,
-		unsigned int level,
-		unsigned int meleeAtkDmg,
-		unsigned int rangedAtkDmg,
-		unsigned int armorDmgReduction
-		)
-		:
-		name(name),
-		hitPoints(hitPoints),
-		maxHitPoints(maxHitPoints),
-		energyPoints(energyPoints),
-		maxEnergyPoints(maxEnergyPoints),
-		level(1),
-		meleeAtkDmg(meleeAtkDmg),
-		rangedAtkDmg(rangedAtkDmg),
-		armorDmgReduction(armorDmgReduction)
+ClapTrap::ClapTrap(std::string name)
 {
 	this->name = name;
-	this->hitPoints = hitPoints;
-	this->maxHitPoints = maxHitPoints;
-	this->energyPoints = energyPoints;
-	this->maxEnergyPoints = maxEnergyPoints;
-	this->level = level;
-	this->meleeAtkDmg = meleeAtkDmg;
-	this->rangedAtkDmg = rangedAtkDmg;
-	this->armorDmgReduction = armorDmgReduction;
-	std::cout << "A new ClapTrap named " << this->getName() << " has been created!" << std::endl;
+	this->hitPoints = 0;
+	this->maxHitPoints = 0;
+	this->energyPoints = 0;
+	this->maxEnergyPoints = 0;
+	this->level = 1;
+	this->meleeAtkDmg = 0;
+	this->rangedAtkDmg = 0;
+	this->armorDmgReduction = 0;
+	std::cout << "A new ClapTrap named <" << this->getName() << "> has been created!" << std::endl;
 }
 
-ClapTrap::ClapTrap() :
-name("Standard ClapTrap"),
-hitPoints(100),
-maxHitPoints(100),
-energyPoints(100),
-maxEnergyPoints(100),
-level(1),
-meleeAtkDmg(30),
-rangedAtkDmg(20),
-armorDmgReduction(5)
+ClapTrap::ClapTrap()
 {
-	std::cout << "A ClapTrap named " << this->getName() << " has been created!" << std::endl;
+	this->name = "Standard ClapTrap";
+	this->hitPoints = 0;
+	this->maxHitPoints = 0;
+	this->energyPoints = 0;
+	this->maxEnergyPoints = 0;
+	this->level = 1;
+	this->meleeAtkDmg = 0;
+	this->rangedAtkDmg = 0;
+	this->armorDmgReduction = 0;
+	std::cout << "A ClapTrap named <" << this->getName() << "> has been created!" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &f)
@@ -70,7 +50,7 @@ ClapTrap::ClapTrap(const ClapTrap &f)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "A ClapTrap named " << this->getName() << " has been destroyed!" << std::endl;
+	std::cout << "A ClapTrap named <" << this->getName() << "> has been destroyed!" << std::endl;
 }
 
 ClapTrap & ClapTrap::operator=(ClapTrap const &rhs)

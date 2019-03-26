@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 16:23:57 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/26 16:26:52 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/26 20:34:58 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,32 @@
 #include <string>
 #include <iostream>
 
-ScavTrap::ScavTrap(/* args */) : ClapTrap("Standard SCAV", 100, 100, 50, 50, 1, 20, 25, 3)
+ScavTrap::ScavTrap(/* args */)
 {
-	std::cout << "SCAV-TP unit named " << this->getName() << " built." << std::endl;
+	this->name = "Standard SCAV";
+	this->hitPoints = 100;
+	this->maxHitPoints = 100;
+	this->energyPoints = 50;
+	this->maxEnergyPoints = 50;
+	this->level = 1;
+	this->meleeAtkDmg = 20;
+	this->rangedAtkDmg = 25;
+	this->armorDmgReduction = 3;
+	std::cout << "SCAV-TP unit named <" << this->getName() << "> built." << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 100, 100, 50, 50, 1, 20, 25, 3)
+ScavTrap::ScavTrap(std::string name)
 {
-	std::cout << "SCAV-TP unit named " << this->getName() << " built." << std::endl;
+	this->name = name;
+	this->hitPoints = 100;
+	this->maxHitPoints = 100;
+	this->energyPoints = 50;
+	this->maxEnergyPoints = 50;
+	this->level = 1;
+	this->meleeAtkDmg = 20;
+	this->rangedAtkDmg = 25;
+	this->armorDmgReduction = 3;
+	std::cout << "SCAV-TP unit named <" << this->getName() << "> built." << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &f)
@@ -33,7 +51,7 @@ ScavTrap::ScavTrap(const ScavTrap &f)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "SCAV-TP named " << this->getName() << " has died." << std::endl;
+	std::cout << "SCAV-TP named <" << this->getName() << "> has died." << std::endl;
 }
 
 ScavTrap & ScavTrap::operator=(ScavTrap const &rhs)

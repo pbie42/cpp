@@ -6,20 +6,38 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 13:13:40 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/26 16:26:24 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/26 20:35:11 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "NinjaTrap.hpp"
 
-NinjaTrap::NinjaTrap(/* args */) : ClapTrap("Standard Ninja", 60, 60, 120, 120, 1, 60, 5, 0)
+NinjaTrap::NinjaTrap(/* args */)
 {
-	std::cout << "NINJA-TP unit named " << this->getName() << " built." << std::endl;
+	this->name = "Standard Ninja";
+	this->hitPoints = 60;
+	this->maxHitPoints = 60;
+	this->energyPoints = 120;
+	this->maxEnergyPoints = 120;
+	this->level = 1;
+	this->meleeAtkDmg = 60;
+	this->rangedAtkDmg = 5;
+	this->armorDmgReduction = 0;
+	std::cout << "NINJA-TP unit named <" << this->getName() << "> built." << std::endl;
 }
 
-NinjaTrap::NinjaTrap(std::string name) : ClapTrap(name, 60, 60, 120, 120, 1, 60, 5, 0)
+NinjaTrap::NinjaTrap(std::string name)
 {
-	std::cout << "NINJA-TP unit named " << this->getName() << " built." << std::endl;
+	this->name = name;
+	this->hitPoints = 60;
+	this->maxHitPoints = 60;
+	this->energyPoints = 120;
+	this->maxEnergyPoints = 120;
+	this->level = 1;
+	this->meleeAtkDmg = 60;
+	this->rangedAtkDmg = 5;
+	this->armorDmgReduction = 0;
+	std::cout << "NINJA-TP unit named <" << this->getName() << "> built." << std::endl;
 }
 
 NinjaTrap::NinjaTrap(const NinjaTrap &f)
@@ -30,7 +48,7 @@ NinjaTrap::NinjaTrap(const NinjaTrap &f)
 
 NinjaTrap::~NinjaTrap()
 {
-	std::cout << "NINJA-TP unit named " << this->getName() << " destroyed." << std::endl;
+	std::cout << "NINJA-TP unit named <" << this->getName() << "> destroyed." << std::endl;
 }
 
 NinjaTrap & NinjaTrap::operator=(NinjaTrap const &rhs)

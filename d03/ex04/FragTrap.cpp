@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 13:49:05 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/26 16:25:55 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/26 20:35:23 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,32 @@
 #include <string>
 #include <iostream>
 
-FragTrap::FragTrap(/* args */) : ClapTrap("Standard FR4G", 100, 100, 100, 100, 1, 30, 20, 5)
+FragTrap::FragTrap(/* args */)
 {
-	std::cout << "FR4G-TP unit named " << this->getName() << " built." << std::endl;
+	this->name = "Standard FR4G";
+	this->hitPoints = 100;
+	this->maxHitPoints = 100;
+	this->energyPoints = 100;
+	this->maxEnergyPoints = 100;
+	this->level = 1;
+	this->meleeAtkDmg = 30;
+	this->rangedAtkDmg = 20;
+	this->armorDmgReduction = 5;
+	std::cout << "FR4G-TP unit named <" << this->getName() << "> built." << std::endl;
 }
 
-FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 100, 100, 100, 1, 30, 20, 5)
+FragTrap::FragTrap(std::string name)
 {
-	std::cout << "FR4G-TP unit named " << this->getName() << " built." << std::endl;
+	this->name = name;
+	this->hitPoints = 100;
+	this->maxHitPoints = 100;
+	this->energyPoints = 100;
+	this->maxEnergyPoints = 100;
+	this->level = 1;
+	this->meleeAtkDmg = 30;
+	this->rangedAtkDmg = 20;
+	this->armorDmgReduction = 5;
+	std::cout << "FR4G-TP unit named <" << this->getName() << "> built." << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap &f)
@@ -32,7 +50,7 @@ FragTrap::FragTrap(const FragTrap &f)
 
 FragTrap::~FragTrap()
 {
-	std::cout << "FR4G-TP named " << this->getName() << " has died." << std::endl;
+	std::cout << "FR4G-TP named <" << this->getName() << "> has died." << std::endl;
 }
 
 FragTrap & FragTrap::operator=(FragTrap const &rhs)

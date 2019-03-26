@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 14:56:40 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/26 14:31:38 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/26 21:30:55 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,21 @@ int main()
 
 	super.meleeAttack("Daniel Hadley");
 	super.rangedAttack("Daniel Hadley");
+	super.ninjaShoebox(shinobi);
+	super.vaulthunter_dot_exe("Daniel Hadley");
+	super.takeDamage(25);
+	super.takeDamage(25);
+	super.takeDamage(25);
+	super.takeDamage(25);
+	super.takeDamage(25);
+	super.takeDamage(25);
+
+	super.beRepaired(25);
+	super.beRepaired(25);
+
+	super.takeDamage(75);
+
+	super.beRepaired(200);
 
 	std::cout << "\n" << std::endl;
 	
