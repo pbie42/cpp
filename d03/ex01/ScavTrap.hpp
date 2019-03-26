@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 16:23:26 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/25 16:46:06 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/26 10:28:01 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,12 @@ public:
 	ScavTrap(/* args */);
 	ScavTrap(std::string name);
 	~ScavTrap();
-	ScavTrap & ScavTrap::operator=(ScavTrap const &rhs);
+	ScavTrap & operator=(ScavTrap const &rhs);
 	void rangedAttack(std::string const & target) const;
 	void meleeAttack(std::string const & target) const;
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
+	void challengeNewcomer() const;
 	std::string getName() const;
 	void setName(std::string name);
 	unsigned int getHitPoints() const;

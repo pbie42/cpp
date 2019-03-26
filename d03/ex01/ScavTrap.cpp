@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 16:23:57 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/25 17:05:42 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/26 10:28:43 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,19 @@ void ScavTrap::beRepaired(unsigned int amount)
 
 	std::cout << "SCAV-TP <" << this->getName() << "> is repaired with "
 	<< amount << " hit points. Current HP: " << this->getHitPoints() << std::endl;
+}
+
+void ScavTrap::challengeNewcomer() const
+{
+	std::string randomChallenge[5] = {
+		"Count to 1000!", "Do a Barrel Roll!", "Call your mom and tell her you love her!",
+		"Not drink for 3 months!", "Stop being French!"
+	};
+	srand(time(0) + rand());
+	int random = rand() % 5;
+
+	std::cout << "SCAV-TP <" << this->getName() << "> challenges you to "
+	<< randomChallenge[random] << std::endl;
 }
 
 std::string ScavTrap::getName() const

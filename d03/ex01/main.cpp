@@ -6,11 +6,12 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 14:56:40 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/25 17:01:39 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/26 10:29:51 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main()
 {
@@ -44,6 +45,37 @@ int main()
 	standard = steve;
 
 	standard.meleeAttack("Dan");
+	
+	ScavTrap josephine = ScavTrap("Josephine");
+	ScavTrap basic = ScavTrap();
+	ScavTrap lucien = ScavTrap("Lucien");
+
+	josephine.challengeNewcomer();
+	josephine.challengeNewcomer();
+	josephine.challengeNewcomer();
+	josephine.challengeNewcomer();
+	josephine.challengeNewcomer();
+
+	josephine.takeDamage(25);
+	josephine.takeDamage(25);
+	josephine.takeDamage(25);
+	josephine.takeDamage(25);
+	josephine.takeDamage(25);
+	josephine.takeDamage(25);
+
+	josephine.beRepaired(25);
+	josephine.beRepaired(25);
+
+	josephine.takeDamage(75);
+
+	josephine.beRepaired(200);
+
+	josephine.meleeAttack("Daniel");
+	josephine.rangedAttack("Daniel");
+
+	basic = lucien;
+
+	basic.meleeAttack("Daniel");
 	return 0;
 }
 

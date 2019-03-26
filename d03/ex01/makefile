@@ -6,7 +6,7 @@
 #    By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/27 12:38:55 by pbie              #+#    #+#              #
-#    Updated: 2019/03/25 14:57:25 by pbie             ###   ########.fr        #
+#    Updated: 2019/03/26 10:28:16 by pbie             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ CXXFLAGS = -Wall -Werror -Wextra
 NAME = main
 
 SRC = main.cpp \
-		FragTrap.cpp
+		FragTrap.cpp \
+		ScavTrap.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
