@@ -6,20 +6,18 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 13:45:29 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/26 16:27:31 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/26 16:35:42 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "SuperTrap.hpp"
 
-SuperTrap::SuperTrap(/* args */) : FragTrap("Standard SuperTrap"), NinjaTrap("Standard SuperTrap"),
-ClapTrap("Standard SuperTrap", hitPoints, FragTrap::getMaxHitPoints(), NinjaTrap::getEnergyPoints(), NinjaTrap::getMaxEnergyPoints(), 1, NinjaTrap::getMeleeAtkDmg(), FragTrap::getRangedAtkDmg(), FragTrap::getArmorDmgReduction())
+SuperTrap::SuperTrap(/* args */) : FragTrap("Standard SuperTrap"), NinjaTrap("Standard SuperTrap")
 {
 	std::cout << "SUPER-TP named <" << this->getName() << "> created!" << std::endl;
 }
 
-SuperTrap::SuperTrap(std::string name) : FragTrap(name), NinjaTrap(name),
-ClapTrap(name, FragTrap::getHitPoints(), FragTrap::getMaxHitPoints(), NinjaTrap::getEnergyPoints(), NinjaTrap::getMaxEnergyPoints(), 1, NinjaTrap::getMeleeAtkDmg(), FragTrap::getRangedAtkDmg(), FragTrap::getArmorDmgReduction())
+SuperTrap::SuperTrap(std::string name) : FragTrap(name), NinjaTrap(name)
 {
 	std::cout << "SUPER-TP named <" << this->getName() << "> created!" << std::endl;
 }
