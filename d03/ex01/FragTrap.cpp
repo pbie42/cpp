@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 13:49:05 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/25 17:06:37 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/26 13:26:25 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ FragTrap::FragTrap(/* args */) :
 hitPoints(100), maxHitPoints(100), energyPoints(100), maxEnergyPoints(100),
 level(1), meleeAtkDmg(30), rangedAtkDmg(20), armorDmgReduction(5)
 {
-	this->name = "Standard";
+	this->name = "Standard FR4G";
 	std::cout << "FR4G-TP unit named " << this->getName() << " built." << std::endl;
 }
 
