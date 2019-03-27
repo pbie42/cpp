@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Casualty.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/27 15:16:28 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/27 21:51:57 by pbie             ###   ########.fr       */
+/*   Created: 2019/03/27 21:41:02 by pbie              #+#    #+#             */
+/*   Updated: 2019/03/27 21:52:33 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Sorcerer.hpp"
+#ifndef CASUALTY_H
+#define CASUALTY_H
+
+#include <iostream>
+#include <string>
+
 #include "Victim.hpp"
-#include "Peon.hpp"
-#include "Casualty.hpp"
 
-int main()
+class Casualty : public Victim
 {
-	Sorcerer robert("Robert", "the Magnificent");
+	private:
+		/* data */
+	public:
+		Casualty(/* args */);
+		Casualty(std::string name);
+		Casualty(Casualty const &f);
+		virtual ~Casualty();
+		Casualty & operator=(Casualty const &rhs);
+		virtual void getPolymorphed() const;
+};
 
-	Victim jim("Jimmy");
-	Peon joe("Joe");
-	Casualty dan("Dan");
-
-	std::cout << robert << jim << joe << dan;
-
-	robert.polymorph(jim);
-	robert.polymorph(joe);
-	robert.polymorph(dan);
-	return 0;
-}
-
+#endif // CASUALTY_H

@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 11:51:56 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/27 16:45:39 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/27 21:39:50 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Peon : public Victim
 		Peon(/* args */);
 		Peon(Peon const &f);
 		Peon(std::string name);
-		~Peon();
+		virtual ~Peon();
 		Peon & operator=(Peon const &rhs);
 		virtual void getPolymorphed() const;
 };
