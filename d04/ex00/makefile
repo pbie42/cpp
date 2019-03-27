@@ -6,7 +6,7 @@
 #    By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/27 12:38:55 by pbie              #+#    #+#              #
-#    Updated: 2019/03/27 21:46:57 by pbie             ###   ########.fr        #
+#    Updated: 2019/03/27 22:15:38 by pbie             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRC = main.cpp \
 		Sorcerer.cpp \
 		Victim.cpp \
 		Peon.cpp \
+		Fatality.cpp \
 		Casualty.cpp
 
 OBJ = $(SRC:.cpp=.o)
