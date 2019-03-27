@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 13:39:06 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/22 12:16:27 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/27 18:28:17 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ bool expressionsCheck(std::string str)
 		if (str[x] == '(' && str[x + 1] && nonNegCheck(str[x + 1])) return false;
 		if ((str[x] == '(') && str[x + 1] && str[x + 1] == '-' && str[x + 2] && exprCheck(str[x + 2])) return false;
 		if (x == 0 && str[x] == '-' && str[x + 1] && str[x + 1] == '-') return false;
+		if (str[x] == '-' && str[x + 1] && str[x + 1] == '(' && str[x - 1] && str[x - 1] == '(') return false;
 		if (exprCheck(str[x]) && str[x + 1] && nonNegCheck(str[x + 1])) return false;
 		if (exprCheck(str[x]) && str[x + 1] && str[x + 1] == '-' && !negCheck(str, x)) return false;
 		x++;
