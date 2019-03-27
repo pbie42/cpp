@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 14:11:39 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/27 18:29:29 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/27 21:31:05 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,7 +154,8 @@ std::string convert(std::string str)
 		}
 		x++;
 	}
-	calculateExpression(str);
+	newStr = calculateExpression(str);
+	str.replace(0, str.length() - start, newStr);
 	std::cout << str << std::endl;
 	return str;
 }
