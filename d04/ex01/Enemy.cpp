@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 15:48:02 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/28 16:53:56 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/28 18:46:10 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,12 @@ Enemy::~Enemy()
 void Enemy::takeDamage(int dmg)
 {
 	int currentHP = this->getHP();
-	if ((currentHP - dmg) < 0 || dmg < 0) return
-	this->setHP(currentHP - dmg);
+	int totalDmg = currentHP - dmg;
+
+	if (dmg < 0) return;
+	if ((totalDmg) < 0) totalDmg = 0;
+	std::cout << this->getType() << " has taken " << dmg << " points of damage" << std::endl;
+	this->setHP(totalDmg);
 }
 
 Enemy & Enemy::operator=(Enemy const &rhs)
@@ -60,4 +64,13 @@ int Enemy::getHP() const
 void Enemy::setHP(int newHP)
 {
 	this->hp = newHP;
+}
+
+std::ostream & operator<<(std::ostream & o, Enemy const & rhs)
+{
+	std::stringstream ss;
+
+	ss << rhs.getType() << " has " << rhs.getHP() << " HP";
+	o << ss.str();
+	return o;
 }

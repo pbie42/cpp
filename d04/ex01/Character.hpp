@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 16:09:07 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/28 16:35:44 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/28 18:24:35 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ class Character
 		virtual ~Character();
 		Character & operator=(Character const &rhs);
 		void recoverAP();
+		void removeAP(int amount);
 		void equip(AWeapon *);
 		void attack(Enemy *);
 		std::string const &getName() const;

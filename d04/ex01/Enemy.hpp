@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 15:48:11 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/28 16:05:14 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/28 18:30:21 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <string>
 #include <iostream>
+#include <sstream>
 
 class Enemy
 {
@@ -33,5 +34,7 @@ class Enemy
 		Enemy & operator=(Enemy const &rhs);
 		virtual void takeDamage(int);
 };
+
+std::ostream & operator<<(std::ostream & o, Enemy const & rhs);
 
 #endif // ENEMY_H

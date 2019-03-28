@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 16:33:25 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/28 17:42:43 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/28 18:57:32 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,14 @@ void Character::recoverAP()
 	int currentAP = this->getAP();
 	if (currentAP + 10 > 40) this->setAP(40);
 	else this->setAP(currentAP + 10);
+	std::cout << this->getName() << " has recovered AP!" << std::endl;
+}
+
+void Character::removeAP(int amount)
+{
+	int currentAP = this->getAP();
+	if (currentAP - amount < 0) this->setAP(0);
+	else this->setAP(currentAP - amount);
 }
 
 Character & Character::operator=(Character const &rhs)
@@ -51,15 +59,26 @@ Character & Character::operator=(Character const &rhs)
 
 void Character::attack(Enemy *e)
 {
-	if (this->weapon != NULL)
+	const int weaponCost = this->weapon->getAPCost();
+
+	if (this->weapon != NULL && this->getAP() - weaponCost > 0)
 	{
 		std::cout << this->getName() << " attacks "
 		<< e->getType() << " with a "
 		<< this->weapon->getName()
 		<< std::endl;
 		e->takeDamage(this->weapon->getDamage());
-		if (e->getHP() <= 0) delete e;
+		if (e && e->getHP() <= 0) {
+			std::cout << "deleting e" << std::endl;
+			delete e;
+		};
+		this->removeAP(weaponCost);
 	}
+	else
+	{
+		std::cout << this->getName() << " does not have enough AP to attack!" << std::endl;
+	}
+	
 }
 
 void Character::equip(AWeapon *w)
@@ -93,14 +112,12 @@ std::ostream & operator<<(std::ostream & o, Character const & rhs)
 
 	if (rhs.getWeapon() != NULL)
 	{
-		std::cout << "has a weapon" << std::endl;
-		ss << rhs.getName() << " has " << rhs.getAP() << " AP and wields a"
+		ss << rhs.getName() << " has " << rhs.getAP() << " AP and wields a "
 		<< rhs.getWeapon()->getName();
 		o << ss.str();
 	}
 	else
 	{
-		std::cout << "has no weapon" << std::endl;
 		ss << rhs.getName() << " has " << rhs.getAP() << " AP and is unarmed";
 		o << ss.str();
 	}
