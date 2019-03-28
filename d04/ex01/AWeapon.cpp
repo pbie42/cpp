@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 22:32:17 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/27 23:24:21 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/28 16:40:41 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@ AWeapon::AWeapon(/* args */)
 {
 }
 
-AWeapon::AWeapon(std::string const & name, int apcost, int damage)
+AWeapon::AWeapon(std::string const & name, int apcost, int damage) :
+name(name),
+apcost(apcost),
+damage(damage)
 {
 }
 
@@ -39,6 +42,10 @@ AWeapon & AWeapon::operator=(AWeapon const &rhs)
 	return *this;
 }
 
+std::string const &AWeapon::getName() const
+{
+	return this->name;
+}
 int AWeapon::getAPCost() const
 {
 	return this->apcost;

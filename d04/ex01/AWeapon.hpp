@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 22:28:29 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/27 23:21:51 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/28 14:52:27 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class AWeapon
 		int getDamage() const;
 		void setAPCost(int apcost);
 		void setDamage(int damage);
-		std::string getName() const;
+		std::string const &getName() const;
 		virtual void attack() const = 0;
 		AWeapon & operator=(AWeapon const &rhs);
 };
