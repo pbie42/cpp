@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 16:37:32 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/28 18:55:25 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/28 21:02:40 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,16 +76,6 @@ int main()
 	std::cout << *b << std::endl;
 		zaz->attack(b);
 	std::cout << *b << std::endl;
-		zaz->attack(b);
-	std::cout << *b << std::endl;
-		zaz->attack(b);
-	std::cout << *b << std::endl;
-		zaz->attack(b);
-	std::cout << *b << std::endl;
-		zaz->attack(b);
-	std::cout << *b << std::endl;
-
-
-
+	std::cout << *zaz << std::endl;
 	return 0;
 }

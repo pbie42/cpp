@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 16:33:25 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/28 18:57:32 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/28 21:04:56 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,17 +61,16 @@ void Character::attack(Enemy *e)
 {
 	const int weaponCost = this->weapon->getAPCost();
 
-	if (this->weapon != NULL && this->getAP() - weaponCost > 0)
+	if (e && this->weapon != NULL && this->getAP() - weaponCost > 0)
 	{
 		std::cout << this->getName() << " attacks "
 		<< e->getType() << " with a "
 		<< this->weapon->getName()
 		<< std::endl;
+		this->weapon->attack();
 		e->takeDamage(this->weapon->getDamage());
-		if (e && e->getHP() <= 0) {
-			std::cout << "deleting e" << std::endl;
+		if (e && e->getHP() <= 0)
 			delete e;
-		};
 		this->removeAP(weaponCost);
 	}
 	else
