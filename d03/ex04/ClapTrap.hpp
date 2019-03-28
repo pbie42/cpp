@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 10:40:52 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/28 14:50:03 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/28 21:29:10 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class ClapTrap
 		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap &f);
 		ClapTrap();
-		~ClapTrap();
+		virtual ~ClapTrap();
 		void rangedAttack(std::string const & target) const;
 		void meleeAttack(std::string const & target) const;
 		void takeDamage(unsigned int amount);
