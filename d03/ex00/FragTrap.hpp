@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 13:42:40 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/26 16:18:53 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/28 14:46:39 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ public:
 	void beRepaired(unsigned int amount);
 	void vaulthunter_dot_exe(std::string const & target);
 	FragTrap & operator=(FragTrap const &rhs);
-	std::string getName() const;
+	std::string const &getName() const;
 	void setName(std::string name);
 	unsigned int getHitPoints() const;
 	void setHitPoints(unsigned int hitPoints);

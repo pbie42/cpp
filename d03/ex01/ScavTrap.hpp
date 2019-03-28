@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 16:23:26 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/26 16:20:14 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/28 14:48:35 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ public:
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 	void challengeNewcomer() const;
-	std::string getName() const;
+	std::string const &getName() const;
 	void setName(std::string name);
 	unsigned int getHitPoints() const;
 	void setHitPoints(unsigned int hitPoints);

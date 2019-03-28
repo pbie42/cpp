@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 10:41:28 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/26 20:35:35 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/28 14:50:12 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 	<< amount << " hit points. Current HP: " << this->getHitPoints() << std::endl;
 }
 
-std::string ClapTrap::getName() const
+std::string const &ClapTrap::getName() const
 {
 	return this->name;
 }

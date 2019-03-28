@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 13:49:05 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/26 16:19:18 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/28 14:48:11 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,9 +118,9 @@ FragTrap & FragTrap::operator=(FragTrap const &rhs)
 	return *this;
 }
 
-std::string FragTrap::getName() const
+std::string const &FragTrap::getName() const
 {
-	return this->name;
+	return (this->name);
 }
 
 void FragTrap::setName(std::string name)

@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 16:23:57 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/26 16:20:01 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/28 14:48:26 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ void ScavTrap::challengeNewcomer() const
 	<< randomChallenge[random] << std::endl;
 }
 
-std::string ScavTrap::getName() const
+std::string const &ScavTrap::getName() const
 {
 	return this->name;
 }
