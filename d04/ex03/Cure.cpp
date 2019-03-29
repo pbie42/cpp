@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 18:53:57 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/29 18:56:17 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/29 21:56:49 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,5 @@ AMateria *Cure::clone() const
 
 void Cure::use(ICharacter& target)
 {
-	std::cout << "* heals" << target.getName() << "'s wounds *" << std::endl;
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }

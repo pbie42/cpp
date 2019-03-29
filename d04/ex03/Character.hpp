@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 19:00:21 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/29 19:00:49 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/29 22:24:17 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,43 +16,31 @@
 #include <iostream>
 #include <string>
 
+#include "AMateria.hpp"
 #include "ICharacter.hpp"
 
-class Character : ICharacter
+class Character : public ICharacter
 {
 	private:
 		/* data */
+		AMateria* materia[4];
+		int slots;
+		std::string name;
+		Character(/* args */);
 	protected:
 		/* data */
 	public:
-		Character(/* args */);
+		Character(std::string name);
 		Character(Character const &f);
 		virtual ~Character();
 		Character & operator=(Character const &rhs);
+		virtual std::string const &getName() const;
+		virtual void equip(AMateria *m);
+		virtual void unequip(int idx);
+		AMateria *getMateria(int idx) const;
+		virtual void use(int idx, ICharacter& target);
+		int getSlots() const;
+		void deleteMateria();
 };
-
-Character::Character(/* args */)
-{
-}
-
-Character::Character(const Character &f)
-{
-	std::cout << "Copy constructor called" << std::endl;
-	*this = f;
-}
-
-Character::~Character()
-{
-}
-
-Character & Character::operator=(Character const &rhs)
-{
-	std::cout << "Assignment operator called" << std::endl;
-	if (this != &rhs)
-	{
-
-	}
-	return *this;
-}
 
 #endif // CHARACTER_H
