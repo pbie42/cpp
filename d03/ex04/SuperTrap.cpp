@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 13:45:29 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/26 21:31:25 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/29 16:04:15 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ ClapTrap("Standard SuperTrap"),
 FragTrap("Standard SuperTrap"),
 NinjaTrap("Standard SuperTrap")
 {
+	std::cout << "\n getting necessary info from standard ninja and frag traps\n" << std::endl;
 	NinjaTrap ninja;
 	FragTrap frag;
 
@@ -29,6 +30,7 @@ NinjaTrap("Standard SuperTrap")
 	this->meleeAtkDmg = ninja.getMeleeAtkDmg();
 	this->rangedAtkDmg = frag.getRangedAtkDmg();
 	this->armorDmgReduction = frag.getArmorDmgReduction();
+	std::cout << "\n done setting data" << std::endl;
 	std::cout << "SUPER-TP named <" << this->getName() << "> created!" << std::endl;
 }
 
@@ -37,6 +39,7 @@ ClapTrap(name),
 FragTrap(name),
 NinjaTrap(name)
 {
+	std::cout << "\n getting necessary info from standard ninja and frag traps" << std::endl;
 	NinjaTrap ninja;
 	FragTrap frag;
 
@@ -50,6 +53,7 @@ NinjaTrap(name)
 	this->rangedAtkDmg = frag.getRangedAtkDmg();
 	this->armorDmgReduction = frag.getArmorDmgReduction();
 	std::cout << "SUPER-TP named <" << this->getName() << "> created!" << std::endl;
+	std::cout << "\n done setting data\n" << std::endl;
 }
 
 SuperTrap::SuperTrap(const SuperTrap &f)

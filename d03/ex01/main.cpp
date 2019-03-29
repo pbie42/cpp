@@ -6,18 +6,22 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 14:56:40 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/26 10:29:51 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/29 14:19:12 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
+#include <iostream>
 
 int main()
 {
 	FragTrap quincy = FragTrap("Quincy");
 	FragTrap standard = FragTrap();
 	FragTrap steve = FragTrap("Steve");
+
+	FragTrap test = FragTrap(FragTrap("test"));
+	test.meleeAttack("Rick");
 
 	quincy.vaulthunter_dot_exe("Dan");
 	quincy.vaulthunter_dot_exe("Dan");
@@ -45,10 +49,15 @@ int main()
 	standard = steve;
 
 	standard.meleeAttack("Dan");
+
+	std::cout << "\n" << std::endl;
 	
 	ScavTrap josephine = ScavTrap("Josephine");
 	ScavTrap basic = ScavTrap();
 	ScavTrap lucien = ScavTrap("Lucien");
+
+	ScavTrap testScav = ScavTrap(ScavTrap("test"));
+	testScav.meleeAttack("Rick");
 
 	josephine.challengeNewcomer();
 	josephine.challengeNewcomer();

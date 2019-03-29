@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 13:45:13 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/26 21:30:00 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/29 16:08:24 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ public:
 	SuperTrap(/* args */);
 	SuperTrap(std::string name);
 	SuperTrap(const SuperTrap &f);
-	~SuperTrap();
+	virtual ~SuperTrap();
 	void rangedAttack(std::string const & target) const;
 	void meleeAttack(std::string const & target) const;
 	void takeDamage(unsigned int amount);

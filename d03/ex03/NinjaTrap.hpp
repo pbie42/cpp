@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 13:10:32 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/26 16:24:46 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/29 16:08:36 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public:
 	NinjaTrap(/* args */);
 	NinjaTrap(std::string name);
 	NinjaTrap(const NinjaTrap &f);
-	~NinjaTrap();
+	virtual ~NinjaTrap();
 	NinjaTrap & operator=(NinjaTrap const &rhs);
 	void rangedAttack(std::string const & target) const;
 	void meleeAttack(std::string const & target) const;

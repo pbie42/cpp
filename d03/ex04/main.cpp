@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 14:56:40 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/26 21:30:55 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/29 16:00:48 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,9 +111,15 @@ int main()
 	tenchu.ninjaShoebox(shinobi);
 
 	std::cout << "\n" << std::endl;
+	std::cout << "before supertrap" << std::endl;
+	std::cout << "\n" << std::endl;
 
 
 	SuperTrap super = SuperTrap("Superman");
+
+	std::cout << "\n" << std::endl;
+	std::cout << "after supertrap" << std::endl;
+	std::cout << "\n" << std::endl;
 
 	super.meleeAttack("Daniel Hadley");
 	super.rangedAttack("Daniel Hadley");

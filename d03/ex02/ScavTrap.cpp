@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 16:23:57 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/26 16:20:47 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/29 14:56:19 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,22 @@ ScavTrap & ScavTrap::operator=(ScavTrap const &rhs)
 {
 	std::cout << "Assignment operator called" << std::endl;
 
-	std::cout << "<" << this->getName() << "> is now ";
+	if (this != &rhs)
+	{
+		std::cout << "<" << this->getName() << "> is now ";
 
-	this->name = rhs.getName();
-	this->hitPoints = rhs.getHitPoints();
-	this->maxHitPoints = rhs.getMaxHitPoints();
-	this->energyPoints = rhs.getEnergyPoints();
-	this->maxEnergyPoints = rhs.getMaxEnergyPoints();
-	this->level = rhs.getLevel();
-	this->meleeAtkDmg = rhs.getMeleeAtkDmg();
-	this->rangedAtkDmg = rhs.getRangedAtkDmg();
-	this->armorDmgReduction = rhs.getArmorDmgReduction();
+		this->name = rhs.getName();
+		this->hitPoints = rhs.getHitPoints();
+		this->maxHitPoints = rhs.getMaxHitPoints();
+		this->energyPoints = rhs.getEnergyPoints();
+		this->maxEnergyPoints = rhs.getMaxEnergyPoints();
+		this->level = rhs.getLevel();
+		this->meleeAtkDmg = rhs.getMeleeAtkDmg();
+		this->rangedAtkDmg = rhs.getRangedAtkDmg();
+		this->armorDmgReduction = rhs.getArmorDmgReduction();
 
-	std::cout << "<" << this->name << ">" << std::endl;
+		std::cout << "<" << this->name << ">" << std::endl;
+	}
 	return *this;
 }
 

@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 13:13:40 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/26 16:25:08 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/29 15:54:15 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,44 +37,47 @@ NinjaTrap & NinjaTrap::operator=(NinjaTrap const &rhs)
 {
 	std::cout << "Assignment operator called" << std::endl;
 
-	std::cout << "<" << this->getName() << "> is now ";
+	if (this != &rhs)
+	{
+		std::cout << "<" << this->getName() << "> is now ";
 
-	this->name = rhs.getName();
-	this->hitPoints = rhs.getHitPoints();
-	this->maxHitPoints = rhs.getMaxHitPoints();
-	this->energyPoints = rhs.getEnergyPoints();
-	this->maxEnergyPoints = rhs.getMaxEnergyPoints();
-	this->level = rhs.getLevel();
-	this->meleeAtkDmg = rhs.getMeleeAtkDmg();
-	this->rangedAtkDmg = rhs.getRangedAtkDmg();
-	this->armorDmgReduction = rhs.getArmorDmgReduction();
+		this->name = rhs.getName();
+		this->hitPoints = rhs.getHitPoints();
+		this->maxHitPoints = rhs.getMaxHitPoints();
+		this->energyPoints = rhs.getEnergyPoints();
+		this->maxEnergyPoints = rhs.getMaxEnergyPoints();
+		this->level = rhs.getLevel();
+		this->meleeAtkDmg = rhs.getMeleeAtkDmg();
+		this->rangedAtkDmg = rhs.getRangedAtkDmg();
+		this->armorDmgReduction = rhs.getArmorDmgReduction();
 
-	std::cout << "<" << this->name << ">" << std::endl;
+		std::cout << "<" << this->name << ">" << std::endl;
+	}
 	return *this;
 }
 
 void NinjaTrap::ninjaShoebox(FragTrap & target) const
 {
 	std::cout << "NINJA-TP <" << this->getName() << "> attacks FR4G-TP <"
-	<< target.getName() << "> with it's Frag Out attack!" << std::endl;
+	<< target.getName() << "> by tickling it until it can't breath!" << std::endl;
 }
 
 void NinjaTrap::ninjaShoebox(ScavTrap & target) const
 {
 	std::cout << "NINJA-TP <" << this->getName() << "> attacks SCAV-TP <"
-	<< target.getName() << "> with it's Scavenger attack!" << std::endl;
+	<< target.getName() << "> by putting a whoopie cushion underneath it and making it seem like SCAV-TP farted in front of all of it's friends!" << std::endl;
 }
 
 void NinjaTrap::ninjaShoebox(ClapTrap & target) const
 {
 	std::cout << "NINJA-TP <" << this->getName() << "> attacks CLAP-TP <"
-	<< target.getName() << "> with it's Clap Back attack!" << std::endl;
+	<< target.getName() << "> by clapping whenever CLAP-TP does something dumb or embarrassing!" << std::endl;
 }
 
 void NinjaTrap::ninjaShoebox(NinjaTrap & target) const
 {
 	std::cout << "NINJA-TP <" << this->getName() << "> attacks NINJA-TP <"
-	<< target.getName() << "> with it's Ninja Star attack!" << std::endl;
+	<< target.getName() << "> with the silent treatment! Get it??" << std::endl;
 }
 
 void NinjaTrap::rangedAttack(std::string const & target) const
