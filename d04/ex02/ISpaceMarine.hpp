@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 21:16:02 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/28 21:18:48 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/29 16:49:05 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class ISpaceMarine
 	protected:
 		/* data */
 	public:
-		virtual ~ISpaceMarine();
+		virtual ~ISpaceMarine() {};
 		virtual ISpaceMarine* clone() const = 0;
 		virtual void battleCry() const = 0;
 		virtual void rangedAttack() const = 0;
