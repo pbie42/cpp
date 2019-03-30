@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 17:18:39 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/30 18:48:48 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/30 23:59:28 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,3 +42,5 @@ int main()
 	endwin();
 	return 0;
 }
+
+// https://github.com/fundamelon/terminal-game-tutorial
