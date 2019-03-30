@@ -6,13 +6,14 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 11:06:57 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/29 11:19:25 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/30 21:33:39 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AssaultTerminator.hpp"
 
-AssaultTerminator::AssaultTerminator(/* args */)
+AssaultTerminator::AssaultTerminator(/* args */) :
+type("Assault")
 {
 	std::cout << "* teleports from space *" << std::endl;
 }
@@ -56,4 +57,9 @@ AssaultTerminator & AssaultTerminator::operator=(AssaultTerminator const &rhs)
 		// Do stuff
 	}
 	return *this;
+}
+
+std::string AssaultTerminator::getType() const
+{
+	return this->type;
 }

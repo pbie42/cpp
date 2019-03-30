@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 15:48:02 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/28 18:46:10 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/30 20:56:53 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ Enemy::Enemy(const Enemy &f)
 
 Enemy::~Enemy()
 {
+	std::cout << "Enemy " << this->getType() << " has died" << std::endl;
 }
 
 void Enemy::takeDamage(int dmg)

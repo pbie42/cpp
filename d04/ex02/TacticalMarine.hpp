@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 21:25:19 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/29 12:00:29 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/30 21:32:54 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class TacticalMarine : public ISpaceMarine
 {
 	private:
 		/* data */
+		std::string type;
 	protected:
 		/* data */
 	public:
@@ -33,6 +34,7 @@ class TacticalMarine : public ISpaceMarine
 		virtual void battleCry() const;
 		virtual void rangedAttack() const;
 		virtual void meleeAttack() const;
+		std::string getType() const;
 };
 
 #endif // TACTICALMARINE_H

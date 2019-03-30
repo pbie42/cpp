@@ -6,13 +6,14 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 11:07:25 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/29 16:40:17 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/30 21:33:28 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "TacticalMarine.hpp"
 
-TacticalMarine::TacticalMarine(/* args */)
+TacticalMarine::TacticalMarine(/* args */) :
+type("Tactical")
 {
 	std::cout << "Tactical Marine ready for battle" << std::endl;
 }
@@ -56,4 +57,9 @@ TacticalMarine & TacticalMarine::operator=(TacticalMarine const &rhs)
 		// Do stuff
 	}
 	return *this;
+}
+
+std::string TacticalMarine::getType() const
+{
+	return this->type;
 }

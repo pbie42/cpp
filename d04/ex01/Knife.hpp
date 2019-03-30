@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ISquad.hpp                                         :+:      :+:    :+:   */
+/*   Knife.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/28 21:08:41 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/30 21:04:23 by pbie             ###   ########.fr       */
+/*   Created: 2019/03/27 23:14:37 by pbie              #+#    #+#             */
+/*   Updated: 2019/03/30 20:46:21 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ISQUAD_H
-#define ISQUAD_H
+#ifndef KNIFE_H
+#define KNIFE_H
 
-#include "ISpaceMarine.hpp"
+#include <iostream>
+#include <string>
 
-class ISquad
+#include "AWeapon.hpp"
+
+class Knife : public AWeapon
 {
+	private:
+		/* data */
 	public:
-		virtual ~ISquad() {};
-		virtual int getCount() const = 0;
-		virtual ISpaceMarine* getUnit(int) const = 0;
-		virtual int push(ISpaceMarine*) = 0;
+		Knife(/* args */);
+		Knife(Knife const &f);
+		~Knife();
+		Knife & operator=(Knife const &rhs);
+		void attack() const;
 };
 
-#endif // ISQUAD_H
+#endif // KNIFE_H

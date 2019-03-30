@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ISquad.hpp                                         :+:      :+:    :+:   */
+/*   Dan.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/28 21:08:41 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/30 21:04:23 by pbie             ###   ########.fr       */
+/*   Created: 2019/03/28 15:56:52 by pbie              #+#    #+#             */
+/*   Updated: 2019/03/30 20:47:53 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ISQUAD_H
-#define ISQUAD_H
+#ifndef DAN_H
+#define DAN_H
 
-#include "ISpaceMarine.hpp"
+#include "Enemy.hpp"
 
-class ISquad
+class Dan : public Enemy
 {
+	private:
+		/* data */
+	protected:
+		/* data */
 	public:
-		virtual ~ISquad() {};
-		virtual int getCount() const = 0;
-		virtual ISpaceMarine* getUnit(int) const = 0;
-		virtual int push(ISpaceMarine*) = 0;
+		Dan(/* args */);
+		Dan(Dan const &f);
+		virtual ~Dan();
+		Dan & operator=(Dan const &rhs);
 };
 
-#endif // ISQUAD_H
+#endif // DAN_H

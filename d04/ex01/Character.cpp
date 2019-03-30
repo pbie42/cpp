@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 16:33:25 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/28 21:04:56 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/30 20:56:17 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ Character::Character(const Character &f)
 
 Character::~Character()
 {
+	std::cout << this->getName() << " has died" << std::endl;
 }
 
 void Character::recoverAP()

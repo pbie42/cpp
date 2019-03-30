@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 21:25:19 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/29 11:40:16 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/30 21:33:02 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class AssaultTerminator : public ISpaceMarine
 {
 	private:
 		/* data */
+		std::string type;
 	protected:
 		/* data */
 	public:
@@ -33,6 +34,7 @@ class AssaultTerminator : public ISpaceMarine
 		void battleCry() const;
 		void rangedAttack() const;
 		void meleeAttack() const;
+		std::string getType() const;
 };
 
 #endif // ASSAULTTERMINATOR_H

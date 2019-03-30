@@ -6,7 +6,7 @@
 #    By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/27 12:38:55 by pbie              #+#    #+#              #
-#    Updated: 2019/03/28 16:39:46 by pbie             ###   ########.fr        #
+#    Updated: 2019/03/30 20:50:42 by pbie             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,11 @@ SRC = main.cpp \
 		Enemy.cpp \
 		PlasmaRifle.cpp \
 		PowerFist.cpp \
+		Shotgun.cpp \
+		Knife.cpp \
 		RadScorpion.cpp \
+		Dan.cpp \
+		Bear.cpp \
 		SuperMutant.cpp
 
 OBJ = $(SRC:.cpp=.o)

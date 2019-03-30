@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 22:03:25 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/29 12:00:14 by pbie             ###   ########.fr       */
+/*   Updated: 2019/03/30 21:07:32 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class Squad : public ISquad
 		virtual int getCount() const;
 		virtual ISpaceMarine* getUnit(int) const;
 		virtual int push(ISpaceMarine*);
+		void deleteSquad();
 };
 
 #endif // SQUAD_H

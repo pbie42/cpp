@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ISquad.hpp                                         :+:      :+:    :+:   */
+/*   Shotgun.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/28 21:08:41 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/30 21:04:23 by pbie             ###   ########.fr       */
+/*   Created: 2019/03/27 23:14:37 by pbie              #+#    #+#             */
+/*   Updated: 2019/03/30 20:44:32 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ISQUAD_H
-#define ISQUAD_H
+#ifndef SHOTGUN_H
+#define SHOTGUN_H
 
-#include "ISpaceMarine.hpp"
+#include <iostream>
+#include <string>
 
-class ISquad
+#include "AWeapon.hpp"
+
+class Shotgun : public AWeapon
 {
+	private:
+		/* data */
 	public:
-		virtual ~ISquad() {};
-		virtual int getCount() const = 0;
-		virtual ISpaceMarine* getUnit(int) const = 0;
-		virtual int push(ISpaceMarine*) = 0;
+		Shotgun(/* args */);
+		Shotgun(Shotgun const &f);
+		~Shotgun();
+		Shotgun & operator=(Shotgun const &rhs);
+		void attack() const;
 };
 
-#endif // ISQUAD_H
+#endif // SHOTGUN_H
