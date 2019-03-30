@@ -6,7 +6,7 @@
 #    By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/27 12:38:55 by pbie              #+#    #+#              #
-#    Updated: 2019/03/30 16:14:11 by pbie             ###   ########.fr        #
+#    Updated: 2019/03/30 18:43:08 by pbie             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ CXXFLAGS = -Wall -Werror -Wextra
 NAME = ft_retro
 
 SRC = main.cpp \
+		Player.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
