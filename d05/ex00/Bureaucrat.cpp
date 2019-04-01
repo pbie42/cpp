@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:03:16 by pbie              #+#    #+#             */
-/*   Updated: 2019/04/01 17:32:48 by pbie             ###   ########.fr       */
+/*   Updated: 2019/04/01 20:05:14 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ Bureaucrat::Bureaucrat(std::string name, int grade) :
 _name(name)
 {
 	if (grade > 150)
-		throw Bureaucrat::GradeTooHighException();
-	else if (grade < 1)
 		throw Bureaucrat::GradeTooLowException();
+	else if (grade < 1)
+		throw Bureaucrat::GradeTooHighException();
 	this->_grade = grade;
 	std::cout << "Bureaucrat " << this->getName()
 	<< " created with grade " << this->getGrade() << std::endl;
