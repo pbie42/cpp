@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:03:16 by pbie              #+#    #+#             */
-/*   Updated: 2019/04/01 16:56:16 by pbie             ###   ########.fr       */
+/*   Updated: 2019/04/01 17:32:48 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,34 +60,18 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::incGrade()
 {
-	try
-	{
-		if (this->getGrade() - 1 < 1)
-			throw Bureaucrat::GradeTooHighException();
-		else
-			this->_grade--;
-	}
-	catch(Bureaucrat::GradeTooHighException& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	
+	if (this->getGrade() - 1 < 1)
+		throw Bureaucrat::GradeTooHighException();
+	else
+		this->_grade--;
 }
 
 void Bureaucrat::decGrade()
 {
-	try
-	{
-		if (this->getGrade() + 1 > 150)
-			throw Bureaucrat::GradeTooLowException();
-		else
-			this->_grade++;
-	}
-	catch(Bureaucrat::GradeTooLowException& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	
+	if (this->getGrade() + 1 > 150)
+		throw Bureaucrat::GradeTooLowException();
+	else
+		this->_grade++;
 }
 
 

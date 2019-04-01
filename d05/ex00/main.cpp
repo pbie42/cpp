@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 14:47:26 by pbie              #+#    #+#             */
-/*   Updated: 2019/04/01 16:55:58 by pbie             ###   ########.fr       */
+/*   Updated: 2019/04/01 17:34:56 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,22 @@ int main()
 
 	try
 	{
-		Bureaucrat rob("Rob", 149);
-		Bureaucrat gob("Gob", 2);
+		Bureaucrat rob("Rob", 148);
 
-		rob.decGrade();
-		std::cout << rob << std::endl;
-		rob.decGrade();
-		std::cout << rob << std::endl;
-		gob.incGrade();
-		std::cout << gob << std::endl;
-		gob.incGrade();
-		std::cout << gob << std::endl;
+		try
+		{
+			rob.decGrade();
+			std::cout << rob << std::endl;
+			rob.decGrade();
+			std::cout << rob << std::endl;
+			rob.decGrade();
+			std::cout << rob << std::endl;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+		
 	}
 	catch(const Bureaucrat::GradeTooHighException& e)
 	{
@@ -37,13 +42,67 @@ int main()
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
+	catch (const std::exception &e)
+	{
+		std::cout << e.what() << "] *" << std::endl;
+	}
+	std::cout << "\n" << std::endl;
+	try
+	{
+		Bureaucrat gob("Gob", 3);
 
+		try
+		{
+			gob.incGrade();
+			std::cout << gob << std::endl;
+			gob.incGrade();
+			std::cout << gob << std::endl;
+			gob.incGrade();
+			std::cout << gob << std::endl;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+		
+	}
+	catch(const Bureaucrat::GradeTooHighException& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	catch(const Bureaucrat::GradeTooLowException& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << e.what() << "] *" << std::endl;
+	}
+
+
+	std::cout << "\n" << std::endl;
 	try
 	{
 		Bureaucrat bob("Bob", 0);
-		Bureaucrat todd("Todd", 151);
 		std::cout << bob << std::endl;
+	}
+	catch(const Bureaucrat::GradeTooHighException& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	catch(const Bureaucrat::GradeTooLowException& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << e.what() << "] *" << std::endl;
+	}
+
+	std::cout << "\n" << std::endl;
+	try
+	{
+		Bureaucrat todd("Todd", 151);
 		std::cout << todd << std::endl;
 	}
 	catch(const Bureaucrat::GradeTooHighException& e)
@@ -53,6 +112,10 @@ int main()
 	catch(const Bureaucrat::GradeTooLowException& e)
 	{
 		std::cerr << e.what() << '\n';
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << e.what() << "] *" << std::endl;
 	}
 	return 0;
 }
