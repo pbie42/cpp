@@ -5,25 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/30 18:42:41 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/30 18:47:45 by pbie             ###   ########.fr       */
+/*   Created: 2019/03/31 10:03:02 by pbie              #+#    #+#             */
+/*   Updated: 2019/03/31 20:48:14 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Player.hpp"
 
-Player::Player(/* args */)
+Player::Player(/* args */) :
+_x(40),
+_y(16),
+_dispChar('o')
 {
-}
-
-Player::Player(WINDOW *win, int y, int x, char c)
-{
-	this->curWin = win;
-	this->xLoc = x;
-	this->yLoc = y;
-	getmaxyx(this->curWin, this->yMax, this->xMax);
-	keypad(curWin, true);
-	this->character = c;
 }
 
 Player::Player(const Player &f)
@@ -41,101 +34,95 @@ Player & Player::operator=(Player const &rhs)
 	std::cout << "Assignment operator called" << std::endl;
 	if (this != &rhs)
 	{
-		this->curWin = rhs.getCurWin();
-		this->xLoc = rhs.getXLoc();
-		this->yLoc = rhs.getYLoc();
-		this->yMax = rhs.getYMax();
-		this->xMax = rhs.getXMax();
-		keypad(curWin, true);
-		this->character = rhs.getCharacter();
+
 	}
 	return *this;
 }
 
-void Player::mvUp()
+void Player::update(WINDOW *win, int tick)
 {
-	this->clear();
-	this->yLoc--;
-	if (this->yLoc < 1)
-		this->yLoc = 1;
-}
-void Player::mvDown()
-{
-	this->clear();
-	this->yLoc++;
-	if (this->yLoc > this->yMax - 2)
-		this->yLoc = this->yMax - 2;
-}
-void Player::mvLeft()
-{
-	this->clear();
-	this->xLoc--;
-	if (this->xLoc < 1)
-		this->xLoc = 1;
-}
-void Player::mvRight()
-{
-	this->clear();
-	this->xLoc++;
-	if (this->xLoc > this->xMax - 2)
-		this->xLoc = this->xMax - 2;
-}
+	mvwaddch(win, this->getY(), this->getX(), this->getDispChar());
+	wattron(win, A_ALTCHARSET);
+	mvwaddch(win, this->getY(), this->getX() - 1, ACS_LARROW);
+	mvwaddch(win, this->getY(), this->getX() + 1, ACS_RARROW);
 
-void Player::clear()
-{
-	mvwaddch(this->curWin, this->yLoc, this->xLoc, ' ');
-}
-
-int Player::getMv()
-{
-	int choice = wgetch(this->curWin);
-	switch (choice)
-	{
-		case KEY_UP:
-			this->mvUp();
-			break;
-		case KEY_DOWN:
-			this->mvDown();
-			break;
-		case KEY_LEFT:
-			this->mvLeft();
-			break;
-		case KEY_RIGHT:
-			this->mvRight();
-			break;
-	
-		default:
-			break;
+	if((tick % 10) / 3) {
+		wattron(win, COLOR_PAIR(tick % 2 ? 3 : 4));
+		mvwaddch(win, this->getY() + 1, this->getX(), ACS_UARROW);
+		wattroff(win, COLOR_PAIR(tick % 2 ? 3 : 4));
 	}
-	return choice;
+
+	wattroff(win, A_ALTCHARSET);
 }
 
-void Player::display()
+int Player::getX() const
 {
-	mvwaddch(this->curWin, this->yLoc, this->xLoc, this->character);
+	return this->_x;
 }
 
-int Player::getXLoc() const
+int Player::getY() const
 {
-	return this->xLoc;
+	return this->_y;
 }
-int Player::getYLoc() const
+
+char Player::getDispChar() const
 {
-	return this->yLoc;
+	return this->_dispChar;
 }
-int Player::getXMax() const
+
+void Player::setX(int x)
 {
-	return this->xMax;
+	this->_x = x;
 }
-int Player::getYMax() const
+
+void Player::setY(int y)
 {
-	return this->yMax;
+	this->_y = y;
 }
-char Player::getCharacter() const
+
+void Player::setDispChar(char c)
 {
-	return this->character;
+	this->_dispChar = c;
 }
-WINDOW *Player::getCurWin() const
+
+int Player::getLeft() const
 {
-	return this->curWin;
+	return this->_left;
+}
+int Player::getTop() const
+{
+	return this->_top;
+}
+int Player::getRight() const
+{
+	return this->_right;
+}
+int Player::getBottom() const
+{
+	return this->_bottom;
+}
+
+void Player::setLeft(int left)
+{
+	this->_left = left;
+}
+void Player::setTop(int top)
+{
+	this->_top = top;
+}
+void Player::setRight(int right)
+{
+	this->_right = right;
+}
+void Player::setBottom(int bottom)
+{
+	this->_bottom = bottom;
+}
+
+void Player::setBounds(int left, int right, int top, int bottom)
+{
+	this->setRight(right);
+	this->setLeft(left);
+	this->setTop(top);
+	this->setBottom(bottom);
 }

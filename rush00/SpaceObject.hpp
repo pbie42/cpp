@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   SpaceObject.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/30 17:18:39 by pbie              #+#    #+#             */
-/*   Updated: 2019/03/31 15:44:40 by pbie             ###   ########.fr       */
+/*   Created: 2019/03/31 10:36:10 by pbie              #+#    #+#             */
+/*   Updated: 2019/03/31 17:17:38 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SPACEOBJECT_H
+#define SPACEOBJECT_H
+
 #include <iostream>
 #include <string>
-#include <ncurses.h>
 
-#include "Game.hpp"
+#include "Entity.hpp"
 
-int main()
+class SpaceObject : public Entity
 {
-	Game *game = new Game();
+	private:
+		/* data */
+	protected:
+		/* data */
+	public:
+		SpaceObject(int, int, int, bool);
+		SpaceObject(SpaceObject const &f);
+		SpaceObject();
+		virtual ~SpaceObject();
+		SpaceObject & operator=(SpaceObject const &rhs);
+		void update();
+		void setX(int);
+		void setY(int);
+		void setPos(int, int);
+};
 
-	int initStatus = game->init();
-
-	if (initStatus == 0)
-		game->run();
-	
-	game->close();
-	delete game;
-	return 0;
-}
+#endif // SPACEOBJECT_H
