@@ -6,7 +6,7 @@
 #    By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/27 12:38:55 by pbie              #+#    #+#              #
-#    Updated: 2019/04/01 14:47:20 by pbie             ###   ########.fr        #
+#    Updated: 2019/04/01 19:32:30 by pbie             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ NAME = main
 
 SRC = main.cpp \
 		Bureaucrat.cpp \
+		Form.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 

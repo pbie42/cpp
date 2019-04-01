@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 17:36:54 by pbie              #+#    #+#             */
-/*   Updated: 2019/04/01 18:33:33 by pbie             ###   ########.fr       */
+/*   Updated: 2019/04/01 19:44:45 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <sstream>
 
 #include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {
