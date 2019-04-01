@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 14:47:26 by pbie              #+#    #+#             */
-/*   Updated: 2019/04/01 17:34:56 by pbie             ###   ########.fr       */
+/*   Updated: 2019/04/01 18:38:58 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,17 @@ int main()
 			rob.decGrade();
 			std::cout << rob << std::endl;
 		}
-		catch(const std::exception& e)
+		catch(const Bureaucrat::GradeTooHighException& e)
 		{
 			std::cerr << e.what() << '\n';
+		}
+		catch(const Bureaucrat::GradeTooLowException& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+		catch (const std::exception &e)
+		{
+			std::cout << e.what() << "] *" << std::endl;
 		}
 		
 	}
@@ -60,9 +68,17 @@ int main()
 			gob.incGrade();
 			std::cout << gob << std::endl;
 		}
-		catch(const std::exception& e)
+		catch(const Bureaucrat::GradeTooHighException& e)
 		{
 			std::cerr << e.what() << '\n';
+		}
+		catch(const Bureaucrat::GradeTooLowException& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+		catch (const std::exception &e)
+		{
+			std::cout << e.what() << "] *" << std::endl;
 		}
 		
 	}
