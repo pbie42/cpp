@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 14:47:26 by pbie              #+#    #+#             */
-/*   Updated: 2019/04/02 16:54:53 by pbie             ###   ########.fr       */
+/*   Updated: 2019/04/02 17:42:59 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int main()
 	Bureaucrat hermes = Bureaucrat("Hermes Conrad", 46);
 	Bureaucrat bob = Bureaucrat("Bobby Bobson", 70);
 	OfficeBlock ob;
+	OfficeBlock otherB(&idiotOne, &bob, &hermes);
 	std::cout << "\n" << std::endl;
 	try
 	{
@@ -83,10 +84,47 @@ int main()
 	{
 		std::cout << e.what() << std::endl;
 	}
+
 	std::cout << "\n" << std::endl;
 	try
 	{
-		ob.doBureaucracy("shrubbery creation", "Pigley");
+		otherB.doBureaucracy("shrubbery creation", "Pigley");
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << "\n" << std::endl;
+	try
+	{
+		otherB.doBureaucracy("mutant pig termination", "Pigley");
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << "\n" << std::endl;
+	try
+	{
+		otherB.doBureaucracy("presidential pardon", "Pigley");
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << "\n" << std::endl;
+	try
+	{
+		otherB.doBureaucracy("robotomy request", "Pigley");
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << "\n" << std::endl;
+	try
+	{
+		otherB.doBureaucracy("shrubbery creation", "Pigley");
 	}
 	catch (std::exception & e)
 	{
