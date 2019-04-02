@@ -6,19 +6,19 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 20:58:40 by pbie              #+#    #+#             */
-/*   Updated: 2019/04/02 11:34:10 by pbie             ###   ########.fr       */
+/*   Updated: 2019/04/02 16:12:25 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm(/* args */) :
-Form("BullShit", "Shrubbery Creation Form", 25, 5)
+Form("BullShit", "Shrubbery Creation Form", 145, 137)
 {
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) :
-Form(target, "Shrubbery Creation Form", 25, 5)
+Form(target, "Shrubbery Creation Form", 145, 137)
 {
 }
 
