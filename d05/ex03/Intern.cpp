@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 13:43:01 by pbie              #+#    #+#             */
-/*   Updated: 2019/04/02 14:12:57 by pbie             ###   ########.fr       */
+/*   Updated: 2019/04/02 14:24:34 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,10 @@ Form *Intern::makeForm(std::string const & type, std::string const & target) con
 
 	while(x < attackNum){
 		if (actionsNames[x] == type)
+		{
+			std::cout << "Intern creates a " << type << " form." << std::endl;
 			return (this->*actions[x])(target);
+		}
 		x++;
 	}
 	throw Intern::MakeFormException();
