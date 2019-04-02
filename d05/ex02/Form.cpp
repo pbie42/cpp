@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 17:56:59 by pbie              #+#    #+#             */
-/*   Updated: 2019/04/01 22:40:23 by pbie             ###   ########.fr       */
+/*   Updated: 2019/04/02 10:35:27 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,7 +181,7 @@ std::ostream & operator<<(std::ostream & o, Form const & rhs)
 
 	const std::string isSigned = rhs.getSigned() ? "signed" : "not signed";;
 
-	ss << "Form requires grade level " << rhs.getGradeRequiredToSign() << " to sign"
+	ss << rhs.getName() << " requires grade level " << rhs.getGradeRequiredToSign() << " to sign"
 	<< " and requires grade level " << rhs.getGradeRequiredToExecute() << " to execute and is "
 	<< isSigned;
 	o << ss.str();

@@ -6,7 +6,7 @@
 #    By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/27 12:38:55 by pbie              #+#    #+#              #
-#    Updated: 2019/04/01 22:13:09 by pbie             ###   ########.fr        #
+#    Updated: 2019/04/02 11:28:23 by pbie             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,8 @@ SRC = main.cpp \
 		Bureaucrat.cpp \
 		Form.cpp \
 		PresidentialPardonForm.cpp \
+		ShrubberyCreationForm.cpp \
+		RobotomyRequestForm.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
