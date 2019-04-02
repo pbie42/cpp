@@ -6,10 +6,11 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 14:47:26 by pbie              #+#    #+#             */
-/*   Updated: 2019/04/02 14:13:27 by pbie             ###   ########.fr       */
+/*   Updated: 2019/04/02 16:54:53 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "OfficeBlock.hpp"
 #include "Bureaucrat.hpp"
 #include "Intern.hpp"
 #include "Form.hpp"
@@ -18,76 +19,77 @@
 #include "ShrubberyCreationForm.hpp"
 
 
-void testForms(Bureaucrat &b, Form &f)
-{
-
-	try
-	{
-		b.executeForm(f);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	
-	try
-	{
-		b.signForm(f);
-		std::cout << f << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	
-	try
-	{
-		b.executeForm(f);
-		std::cout << f << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-}
-
-
-
 int main()
 {
+	Intern idiotOne;
+	Bureaucrat hermes = Bureaucrat("Hermes Conrad", 46);
+	Bureaucrat bob = Bureaucrat("Bobby Bobson", 70);
+	OfficeBlock ob;
+	std::cout << "\n" << std::endl;
 	try
 	{
-		Bureaucrat rob("Rob", 40);
-		Bureaucrat todd("Todd", 5);
-		Bureaucrat bob("bob", 20);
-		Intern someRandomIntern;
-
-		Form *ppf;
-		ppf = someRandomIntern.makeForm("presidential pardon", "Dan Hadley");
-		std::cout << *ppf << std::endl;
-		Form *rbr;
-		rbr = someRandomIntern.makeForm("robotomy request", "Dan Hadley");
-		std::cout << *rbr << std::endl;
-		Form *scf;
-		scf = someRandomIntern.makeForm("shrubbery creation", "Office");
-		std::cout << *scf << std::endl;
-		std::cout << "\n" << std::endl;
-
-		testForms(rob, (*ppf));
-		std::cout << "\n" << std::endl;
-		testForms(rob, (*rbr));
-		std::cout << "\n" << std::endl;
-		testForms(rob, (*scf));
-		std::cout << "\n" << std::endl;
-		testForms(todd, (*ppf));
-		std::cout << "\n" << std::endl;
-		testForms(todd, (*rbr));
-		std::cout << "\n" << std::endl;
-		testForms(todd, (*scf));
+		ob.doBureaucracy("Shrubbery Creation", "Home");
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
+	std::cout << "\n" << std::endl;
+	ob.setIntern(&idiotOne);
+
+	try
+	{
+		ob.doBureaucracy("Shrubbery Creation", "Home");
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << "\n" << std::endl;
+	ob.setSigner(&bob);
+	try
+	{
+		ob.doBureaucracy("Shrubbery Creation", "Home");
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << "\n" << std::endl;
+	ob.setExecutor(&hermes);
+	try
+	{
+		ob.doBureaucracy("mutant pig termination", "Pigley");
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << "\n" << std::endl;
+	try
+	{
+		ob.doBureaucracy("presidential pardon", "Pigley");
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << "\n" << std::endl;
+	try
+	{
+		ob.doBureaucracy("robotomy request", "Pigley");
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << "\n" << std::endl;
+	try
+	{
+		ob.doBureaucracy("shrubbery creation", "Pigley");
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 }

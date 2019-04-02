@@ -6,7 +6,7 @@
 #    By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/27 12:38:55 by pbie              #+#    #+#              #
-#    Updated: 2019/04/02 13:39:36 by pbie             ###   ########.fr        #
+#    Updated: 2019/04/02 15:59:21 by pbie             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ CXXFLAGS = -Wall -Werror -Wextra
 NAME = main
 
 SRC = main.cpp \
+		OfficeBlock.cpp \
 		Bureaucrat.cpp \
 		Intern.cpp \
 		Form.cpp \
