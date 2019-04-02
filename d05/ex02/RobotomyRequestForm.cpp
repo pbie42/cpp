@@ -6,19 +6,19 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 20:58:40 by pbie              #+#    #+#             */
-/*   Updated: 2019/04/02 11:05:39 by pbie             ###   ########.fr       */
+/*   Updated: 2019/04/02 16:06:00 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm(/* args */) :
-Form("BullShit", "Robotomy Request Form", 25, 5)
+Form("BullShit", "Robotomy Request Form", 72, 45)
 {
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) :
-Form(target, "Robotomy Request Form", 25, 5)
+Form(target, "Robotomy Request Form", 72, 45)
 {
 }
 

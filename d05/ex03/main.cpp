@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 14:47:26 by pbie              #+#    #+#             */
-/*   Updated: 2019/04/02 14:13:27 by pbie             ###   ########.fr       */
+/*   Updated: 2019/04/02 16:10:22 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int main()
 {
 	try
 	{
-		Bureaucrat rob("Rob", 40);
+		Bureaucrat rob("Rob", 140);
 		Bureaucrat todd("Todd", 5);
 		Bureaucrat bob("bob", 20);
 		Intern someRandomIntern;
