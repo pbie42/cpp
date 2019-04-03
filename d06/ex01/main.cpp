@@ -5,84 +5,94 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 14:33:51 by pbie              #+#    #+#             */
-/*   Updated: 2019/04/03 14:56:30 by pbie             ###   ########.fr       */
+/*   Created: 2019/04/03 21:28:12 by pbie              #+#    #+#             */
+/*   Updated: 2019/04/03 22:56:05 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Conversion.hpp"
+#include <string>
+#include <iostream>
+#include <sstream>
+#include <time.h>
 
-int main(int argc, char const *argv[])
+struct Data {
+	std::string s1;
+	int n;
+	std::string s2;
+};
+
+void *serialize(void)
 {
-	if (argc < 2)
+	char *str1 = new char[9];
+	char *str2 = new char[9];
+	char alphaNum[] = "abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+	int x = 0;
+	while(x < 8)
 	{
-		std::cout << "Need something to convert." << std::endl;
-		return 0;
+		int random1 = rand() % 62;
+		str1[x] = alphaNum[random1];
+		x++;
 	}
-	if (argc > 2)
+	str1[x] = '\0';
+	std::cout << "rand string1: " << str1 << std::endl;
+
+	int random = 100 + rand() % ((200 + 1) - 100);
+	std::cout << "random int " << random << std::endl;
+	char intStr[sizeof(random)];
+	*(reinterpret_cast<int*>(intStr)) = random;
+	x = 0;
+	while(x < 8)
 	{
-		std::cout << "One conversion at a time please." << std::endl;
-		return 0;
+		int random1 = rand() % 62;
+		str2[x] = alphaNum[random1];
+		x++;
 	}
+	str2[x] = '\0';
 
-	std::cout << argv[0] << std::endl;
-	Conversion convert(argv[1]);
+	std::cout << "rand string2: " << str2 << std::endl;
 
-	try
+	char *fullStr = new char[20];
+	x = 0;
+	while(x < 8)
 	{
-		int cast;
-
-		std::cout << "Char: ";
-		cast = static_cast<int>(convert);
-
-		if (cast >= 33 && cast <= 126)
-			std::cout << static_cast<char>(convert) << std::endl;
-		else
-			std::cout << "Non Displayable" << std::endl;
+		fullStr[x] = str1[x];
+		x++;
 	}
-	catch(const std::exception& e)
+	int y = 0;
+	while(x < 12)
 	{
-		std::cerr << e.what() << '\n';
+		fullStr[x] = intStr[y];
+		x++;
+		y++;
 	}
-
-	try
-	{
-		int cast;
-
-		std::cout << "int: ";
-		cast = static_cast<int>(convert);
-		std::cout << cast << std::endl;
+	y = 0;
+	while(x < 20){
+		fullStr[x] = str2[y];
+		x++;
+		y++;
 	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	fullStr[x] = '\0';
+	
+	return reinterpret_cast<void *>(fullStr);
+}
 
-	try
-	{
-		float cast;
+Data *deserialize(void * raw)
+{
+	Data *data = new Data;
+	data->s1.assign(reinterpret_cast<char*>(raw), 8);
+	data->n = *reinterpret_cast<int*>(&reinterpret_cast<char*>(raw)[8]);
+	data->s2.assign(&reinterpret_cast<char*>(raw)[12], 8);
+	std::cout << "\n" << std::endl;
+	std::cout << "deserialized s1: " << data->s1 << std::endl;
+	std::cout << "deserialized n: " << data->n << std::endl;
+	std::cout << "deserialized s2: " << data->s2 << std::endl;
+	return data;
+}
 
-		std::cout << "float: ";
-		cast = static_cast<float>(convert);
-		std::cout << cast << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-
-	try
-	{
-		double cast;
-
-		std::cout << "double: ";
-		cast = static_cast<double>(convert);
-		std::cout << cast << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-
+int main()
+{
+	srand(time(0) + rand());
+	deserialize(serialize());
 	return 0;
 }

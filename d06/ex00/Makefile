@@ -6,7 +6,7 @@
 #    By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/27 12:38:55 by pbie              #+#    #+#              #
-#    Updated: 2019/04/03 21:45:08 by pbie             ###   ########.fr        #
+#    Updated: 2019/04/03 16:05:18 by pbie             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,10 @@ CXX = clang++
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-NAME = main
+NAME = convert
 
-SRC = main.cpp
+SRC = main.cpp \
+		Conversion.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
