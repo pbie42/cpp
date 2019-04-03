@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 11:09:29 by pbie              #+#    #+#             */
-/*   Updated: 2019/04/03 16:14:06 by pbie             ###   ########.fr       */
+/*   Updated: 2019/04/03 17:11:01 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ class Conversion
 		/* data */
 		Conversion(/* args */);
 	protected:
-		std::string _data;
+		const char* _data;
 	public:
-		Conversion(std::string);
+		Conversion(const char*);
 		Conversion(Conversion const &f);
 		virtual ~Conversion();
 		Conversion & operator=(Conversion const &rhs);

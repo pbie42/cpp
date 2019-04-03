@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 14:31:19 by pbie              #+#    #+#             */
-/*   Updated: 2019/04/03 16:46:14 by pbie             ###   ########.fr       */
+/*   Updated: 2019/04/03 17:23:42 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Conversion::Conversion(/* args */)
 {
 }
 
-Conversion::Conversion(std::string input) :
+Conversion::Conversion(const char *input) :
 _data(input)
 {
 }
@@ -43,30 +43,58 @@ Conversion & Conversion::operator=(Conversion const &rhs)
 
 Conversion::operator char() const
 {
-	std::stringstream res(this->_data);
-	int x = 0;
+	if (std::strcmp(this->_data, "-inf") == 0 || std::strcmp(this->_data, "-inff") == 0
+		|| std::strcmp(this->_data, "inf") == 0 || std::strcmp(this->_data, "inff") == 0)
+		throw ConversionError();
+	double x = 0;
+	char *end;
 
 	try
 	{
-		res >> x;
+		if((x = std::strtod(this->_data, &end)) == 0)
+		{
+			int x = 0;
+			while(this->_data[x])
+				x++;
+			
+			if (x == 1)
+				return static_cast<char>(this->_data[0]);
+			else
+				throw ConversionError();
+		}
 	}
 	catch(const std::exception& e)
 	{
 		throw ConversionError();
 	}
-	return static_cast<char>(x);
+	return static_cast<int>(x);
 }
 
 Conversion::operator int() const
 {
-	if (this->_data.compare("-inf") || this->_data.compare("-inff")
-		|| this->_data.compare("inf") || this->_data.compare("inff"))
+	if (std::strcmp(this->_data, "-inf") == 0 || std::strcmp(this->_data, "-inff") == 0
+		|| std::strcmp(this->_data, "inf") == 0 || std::strcmp(this->_data, "inff") == 0)
 		throw ConversionError();
-	int x = 0;
+	double x = 0;
+	char *end;
 
 	try
 	{
-		x = std::atoi(this->_data.c_str());
+		if((x = std::strtod(this->_data, &end)) == 0)
+		{
+			int x = 0;
+			while(this->_data[x])
+				x++;
+			
+			if (x == 1)
+			{
+				if (this->_data[0] == '0')
+					return static_cast<int>(0);
+				return static_cast<int>(this->_data[0]);
+			}
+			else
+				throw ConversionError();
+		}
 	}
 	catch(const std::exception& e)
 	{
@@ -77,32 +105,60 @@ Conversion::operator int() const
 
 Conversion::operator double() const
 {
-	double res = 0;
-
+	double x = 0.0;
+	char *end;
 	try
 	{
-		res = std::atof(this->_data.c_str());
+		if((x = std::strtod(this->_data, &end)) == 0)
+		{
+			int x = 0;
+			while(this->_data[x])
+				x++;
+			
+			if (x == 1)
+			{
+				if (this->_data[0] == '0')
+					return static_cast<double>(0);
+				return static_cast<double>(this->_data[0]);
+			}
+			else
+				throw ConversionError();
+		}
 	}
 	catch(const std::exception& e)
 	{
 		throw ConversionError();
 	}
-	return static_cast<double>(res);
+	return static_cast<double>(x);
 }
 
 Conversion::operator float() const
 {
-	float res = 0;
-
+	double x = 0.0;
+	char *end;
 	try
 	{
-		res = std::stof(this->_data);
+		if((x = std::strtod(this->_data, &end)) == 0)
+		{
+			int x = 0;
+			while(this->_data[x])
+				x++;
+			
+			if (x == 1)
+			{
+				if (this->_data[0] == '0')
+					return static_cast<float>(0);
+				return static_cast<float>(this->_data[0]);
+			}
+			else
+				throw ConversionError();
+		}
 	}
 	catch(const std::exception& e)
 	{
 		throw ConversionError();
 	}
-	return res;
+	return static_cast<float>(x);
 }
 
 // Conversion Error ------------------------------------------------------------
