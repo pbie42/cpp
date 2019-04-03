@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 14:31:19 by pbie              #+#    #+#             */
-/*   Updated: 2019/04/03 14:53:31 by pbie             ###   ########.fr       */
+/*   Updated: 2019/04/03 16:46:14 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,32 +43,36 @@ Conversion & Conversion::operator=(Conversion const &rhs)
 
 Conversion::operator char() const
 {
-	int res = 0;
+	std::stringstream res(this->_data);
+	int x = 0;
 
 	try
 	{
-		res = std::stoi(this->_data);
+		res >> x;
 	}
 	catch(const std::exception& e)
 	{
 		throw ConversionError();
 	}
-	return static_cast<char>(res);
+	return static_cast<char>(x);
 }
 
 Conversion::operator int() const
 {
-	int res = 0;
+	if (this->_data.compare("-inf") || this->_data.compare("-inff")
+		|| this->_data.compare("inf") || this->_data.compare("inff"))
+		throw ConversionError();
+	int x = 0;
 
 	try
 	{
-		res = std::stoi(this->_data);
+		x = std::atoi(this->_data.c_str());
 	}
 	catch(const std::exception& e)
 	{
 		throw ConversionError();
 	}
-	return static_cast<int>(res);
+	return static_cast<int>(x);
 }
 
 Conversion::operator double() const
@@ -77,7 +81,7 @@ Conversion::operator double() const
 
 	try
 	{
-		res = std::stod(this->_data);
+		res = std::atof(this->_data.c_str());
 	}
 	catch(const std::exception& e)
 	{
