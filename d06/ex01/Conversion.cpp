@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 14:31:19 by pbie              #+#    #+#             */
-/*   Updated: 2019/04/03 17:23:42 by pbie             ###   ########.fr       */
+/*   Updated: 2019/04/03 18:11:22 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,15 @@ Conversion::operator int() const
 		if((x = std::strtod(this->_data, &end)) == 0)
 		{
 			int x = 0;
+			int others = 0;
 			while(this->_data[x])
+			{
+				if (this->_data[x] >= '1' && this->_data[x] <= '9')
+					others++;
 				x++;
+			}
 			
-			if (x == 1)
+			if (x == 1 || others == 0)
 			{
 				if (this->_data[0] == '0')
 					return static_cast<int>(0);
@@ -112,10 +117,15 @@ Conversion::operator double() const
 		if((x = std::strtod(this->_data, &end)) == 0)
 		{
 			int x = 0;
+			int others = 0;
 			while(this->_data[x])
+			{
+				if (this->_data[x] >= '1' && this->_data[x] <= '9')
+					others++;
 				x++;
+			}
 			
-			if (x == 1)
+			if (x == 1 || others == 0)
 			{
 				if (this->_data[0] == '0')
 					return static_cast<double>(0);
@@ -141,10 +151,15 @@ Conversion::operator float() const
 		if((x = std::strtod(this->_data, &end)) == 0)
 		{
 			int x = 0;
+			int others = 0;
 			while(this->_data[x])
+			{
+				if (this->_data[x] >= '1' && this->_data[x] <= '9')
+					others++;
 				x++;
+			}
 			
-			if (x == 1)
+			if (x == 1 || others == 0)
 			{
 				if (this->_data[0] == '0')
 					return static_cast<float>(0);
