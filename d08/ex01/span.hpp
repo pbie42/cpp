@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 16:25:52 by pbie              #+#    #+#             */
-/*   Updated: 2019/04/05 18:20:53 by pbie             ###   ########.fr       */
+/*   Updated: 2019/04/05 18:59:07 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ class Span
 		void sortIt();
 		double longestSpan();
 		double shortestSpan();
+		template <typename T>
+		void setRange(typename T::iterator, typename T::iterator);
 };
 
 Span::Span(/* args */)
@@ -134,6 +136,17 @@ double Span::longestSpan()
 	int first = this->_v->at(0);
 	int second = this->_v->at(this->_count - 1);
 	return static_cast<double>(second) - static_cast<double>(first);
+}
+
+template <typename T>
+void Span::setRange(typename T::iterator begin, typename T::iterator end)
+{
+	
+	for(typename T::iterator i = begin, unsigned int x = 0; i != end && x < this->_count; i++, x++)
+	{
+		
+	}
+	
 }
 
 #endif // SPAN_H
