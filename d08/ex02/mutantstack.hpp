@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 21:25:34 by pbie              #+#    #+#             */
-/*   Updated: 2019/04/05 22:39:33 by pbie             ###   ########.fr       */
+/*   Updated: 2019/04/05 23:29:09 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ class MutantStack : public std::stack<T>
 template< typename T>
 MutantStack<T>::MutantStack(/* args */)
 {
+	this->_stack.clear();
 }
 
 template< typename T>

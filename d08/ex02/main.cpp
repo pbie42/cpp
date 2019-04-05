@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 22:26:05 by pbie              #+#    #+#             */
-/*   Updated: 2019/04/05 23:25:26 by pbie             ###   ########.fr       */
+/*   Updated: 2019/04/05 23:27:44 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,38 @@ int main()
 	{
 	std::cout << *tit << std::endl;
 	++tit;
+	}
+	
+	std::cout << "\n" << std::endl;
+	std::cout << "\n" << std::endl;
+	MutantStack<int> newTest = mstack;
+	if (newTest.size())
+		std::cout << "newTest has something" << std::endl;
+	else
+		std::cout << "newTest has nothing" << std::endl;
+	newTest.push(5);
+	newTest.push(17);
+	std::cout << "top: " << newTest.top() << std::endl;
+	newTest.pop();
+	std::cout << "size: " << newTest.size() << std::endl;
+	newTest.push(3);
+	newTest.push(5);
+	newTest.push(737);
+	std::cout << "size: " << newTest.size() << std::endl;
+	if (newTest.size())
+		std::cout << "newTest has something" << std::endl;
+	else
+		std::cout << "newTest has nothing" << std::endl;
+	newTest.push(0);
+	MutantStack<int>::iterator nit = newTest.begin();
+	MutantStack<int>::iterator nite = newTest.end();
+	++nit;
+	--nit;
+	std::cout << "\n" << std::endl;
+	while (nit != nite)
+	{
+	std::cout << *nit << std::endl;
+	++nit;
 	}
 
 	std::cout << "\n" << std::endl;
