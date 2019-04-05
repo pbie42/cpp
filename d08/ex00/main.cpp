@@ -6,7 +6,7 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 13:39:30 by pbie              #+#    #+#             */
-/*   Updated: 2019/04/05 15:00:42 by pbie             ###   ########.fr       */
+/*   Updated: 2019/04/05 16:13:11 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int main()
 		v.push_back(i);
 	try
 	{
+		std::cout << "looking for 200" << std::endl;
 		int test = easyfind(v, 200);
 		std::cout << "We found " << test << std::endl;
 	}
@@ -30,6 +31,17 @@ int main()
 	}
 	try
 	{
+		std::cout << "looking for 99" << std::endl;
+		int test = easyfind(v, 99);
+		std::cout << "We found " << test << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		std::cout << "looking for 55" << std::endl;
 		int test = easyfind(v, 55);
 		std::cout << "We found " << test << std::endl;
 	}
@@ -43,6 +55,7 @@ int main()
 		l.push_back(i);
 	try
 	{
+		std::cout << "looking for 630" << std::endl;
 		int test = easyfind(l, 630);
 		std::cout << "We found " << test << std::endl;
 	}
@@ -53,6 +66,7 @@ int main()
 	
 	try
 	{
+		std::cout << "looking for 63" << std::endl;
 		int test = easyfind(l, 63);
 		std::cout << "We found " << test << std::endl;
 	}
