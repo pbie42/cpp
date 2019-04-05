@@ -6,15 +6,20 @@
 /*   By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 22:26:05 by pbie              #+#    #+#             */
-/*   Updated: 2019/04/05 22:33:02 by pbie             ###   ########.fr       */
+/*   Updated: 2019/04/05 23:25:26 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mutantstack.hpp"
+#include <list>
 
 int main()
 {
 	MutantStack<int> mstack;
+	if (mstack.size())
+		std::cout << "mstack has something" << std::endl;
+	else
+		std::cout << "mstack has nothing" << std::endl;
 	mstack.push(5);
 	mstack.push(17);
 	std::cout << "top: " << mstack.top() << std::endl;
@@ -23,7 +28,11 @@ int main()
 	mstack.push(3);
 	mstack.push(5);
 	mstack.push(737);
-	//[...]
+	std::cout << "size: " << mstack.size() << std::endl;
+	if (mstack.size())
+		std::cout << "mstack has something" << std::endl;
+	else
+		std::cout << "mstack has nothing" << std::endl;
 	mstack.push(0);
 	MutantStack<int>::iterator it = mstack.begin();
 	MutantStack<int>::iterator ite = mstack.end();
@@ -36,5 +45,69 @@ int main()
 	++it;
 	}
 	std::stack<int> s(mstack);
+	std::cout << "\n" << std::endl;
+	std::cout << "\n" << std::endl;
+
+	MutantStack<int> testing(mstack);
+	if (testing.size())
+		std::cout << "testing has something" << std::endl;
+	else
+		std::cout << "testing has nothing" << std::endl;
+	testing.push(5);
+	testing.push(17);
+	std::cout << "top: " << testing.top() << std::endl;
+	testing.pop();
+	std::cout << "size: " << testing.size() << std::endl;
+	testing.push(3);
+	testing.push(5);
+	testing.push(737);
+	std::cout << "size: " << testing.size() << std::endl;
+	if (testing.size())
+		std::cout << "testing has something" << std::endl;
+	else
+		std::cout << "testing has nothing" << std::endl;
+	testing.push(0);
+	MutantStack<int>::iterator tit = testing.begin();
+	MutantStack<int>::iterator tite = testing.end();
+	++tit;
+	--tit;
+	std::cout << "\n" << std::endl;
+	while (tit != tite)
+	{
+	std::cout << *tit << std::endl;
+	++tit;
+	}
+
+	std::cout << "\n" << std::endl;
+	std::cout << "\n" << std::endl;
+	std::list<int> lstack;
+	if (lstack.size())
+		std::cout << "lstack has something" << std::endl;
+	else
+		std::cout << "lstack has nothing" << std::endl;
+	lstack.push_back(5);
+	lstack.push_back(17);
+	std::cout << "top: " << lstack.back() << std::endl;
+	lstack.pop_back();
+	std::cout << "size: " << lstack.size() << std::endl;
+	lstack.push_back(3);
+	lstack.push_back(5);
+	lstack.push_back(737);
+	std::cout << "size: " << lstack.size() << std::endl;
+	if (lstack.size())
+		std::cout << "lstack has something" << std::endl;
+	else
+		std::cout << "lstack has nothing" << std::endl;
+	lstack.push_back(0);
+	std::list<int>::iterator lit = lstack.begin();
+	std::list<int>::iterator lite = lstack.end();
+	++lit;
+	--lit;
+	std::cout << "\n" << std::endl;
+	while (lit != lite)
+	{
+	std::cout << *lit << std::endl;
+	++lit;
+	}
 	return 0;
 }
